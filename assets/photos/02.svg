@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#g)"/>
+  <rect x="80" y="80" width="1240" height="740" rx="36" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="4"/>
+  <text x="120" y="180" fill="white" font-size="64" font-family="Inter, Arial, sans-serif">Photo 02</text>
+  <text x="120" y="250" fill="rgba(255,255,255,0.7)" font-size="28" font-family="Inter, Arial, sans-serif">Remplace cette image par ta photo.</text>
+</svg>
