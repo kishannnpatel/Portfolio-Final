@@ -1,11 +1,156 @@
+let currentLang = 'fr';
+
+const translations = {
+    fr: {
+        'nav.about': 'À propos',
+        'nav.skills': 'Compétences',
+        'nav.projects': 'Projets',
+        'nav.photo': 'Portfolio photo',
+        'nav.experience': 'Parcours',
+        'nav.contact': 'Contact',
+        'hero.kicker': 'Portfolio',
+        'hero.title': 'Étudiant en Informatique',
+        'hero.subtitle': 'Spécialisé en administration, gestion et exploitation des données',
+        'hero.desc': "Je ne suis pas développeur : je suis étudiant en 2ème année de BUT Informatique à l'IUT de Montreuil. Je m’oriente vers l’administration et la gestion des données (modélisation, bases relationnelles, qualité et organisation).",
+        'hero.cta.contact': 'Me contacter',
+        'hero.cta.projects': 'Voir les projets',
+        'hero.cta.photo': 'Voir le portfolio photo',
+        'hero.focus.label': 'Focus',
+        'hero.focus.title': 'Administration & données',
+        'hero.focus.desc': 'Modélisation, organisation, qualité et cohérence des données.',
+        'hero.tech.label': 'Tech',
+        'hero.tech.title': 'SQL, PostgreSQL, Python',
+        'hero.tech.desc': 'Requêtes, conception de schémas, analyse et traitement des données.',
+        'hero.availability.label': 'Disponibilité',
+        'hero.availability.title': 'Stage avril-juin 2026',
+        'hero.availability.desc': 'Du 13 avril au 19 juin 2026, temps plein.',
+        'about.title': 'À propos',
+        'about.study': 'Étudiant en BUT Informatique, je me spécialise en administration, gestion et exploitation des données.',
+        'about.interests.label': 'Centres d’intérêt',
+        'about.interests.desc': 'Bénévole dans l’association socio-spirituelle BAPS, je suis aussi débutant en vidéaste et photographe.',
+        'about.stage': "Actuellement à la recherche d'un stage du 13 avril au 19 juin 2026.",
+        'info.location.label': 'Localisation',
+        'info.location.value': 'Drancy, France',
+        'info.email.label': 'Email',
+        'info.phone.label': 'Téléphone',
+        'info.languages.label': 'Langues',
+        'info.languages.value': 'Français, Anglais, Gujarati, Hindi',
+        'skills.title': 'Compétences',
+        'skills.languages': 'Langages',
+        'skills.databases': 'Bases de données',
+        'skills.tools': 'Outils & Environnements',
+        'skills.frameworks': 'Frameworks',
+        'projects.title': 'Projets',
+        'projects.buvette.category': 'Développement web',
+        'projects.buvette.desc': 'Plateforme complète de gestion pour une buvette avec système de stocks, gestion des commandes et authentification utilisateurs. Architecture robuste en PHP/MySQL.',
+        'projects.bataille.category': 'Développement de jeux',
+        'projects.bataille.desc': 'Jeu de Bataille Navale en Java sur terminal : placement des bateaux, tour par tour et gestion des tirs.',
+        'projects.terraria.category': 'Développement de jeux',
+        'projects.terraria.desc': "Jeu 2D complet développé en JavaFX avec système de combat avancé, exploration dynamique et gestion d'entités complexes.",
+        'projects.zelda.category': 'Développement de jeux',
+        'projects.zelda.desc': "Jeu 2D complet développé en JavaFX avec système de combat avancé, exploration dynamique et gestion d'entités complexes.",
+        'projects.puissance.category': 'Algorithmes & IA',
+        'projects.puissance.desc': "Implémentation de Puissance 4 avec algorithmes d'IA avancés et optimisation des performances.",
+        'projects.asterix.category': 'Conception de base de données',
+        'projects.asterix.desc': 'Modélisation de données relationnelles complexes avec requêtes SQL avancées et optimisation des performances.',
+        'projects.view.photos': 'Voir les photos',
+        'experience.title': 'Parcours',
+        'experience.education.label': 'Formation',
+        'experience.education.but': 'BUT Informatique',
+        'experience.education.bac': 'Baccalauréat Technologique',
+        'experience.work.label': 'Expérience',
+        'experience.work.assistant': 'Assistant du Gérant',
+        'experience.work.receptionist': 'Réceptionniste',
+        'contact.title': 'Prêt à travailler ensemble ?',
+        'contact.desc': 'Vous avez un projet intéressant ou une opportunité ? Je serais ravi de discuter de comment je pourrais contribuer.',
+        'contact.cv.label': 'Télécharger mon CV',
+        'contact.cv.fr': 'CV Français',
+        'contact.cv.en': 'CV Anglais',
+        'footer.copy': '© 2026 Kishan Patel - Tous droits réservés'
+    },
+    en: {
+        'nav.about': 'About',
+        'nav.skills': 'Skills',
+        'nav.projects': 'Projects',
+        'nav.photo': 'Photo portfolio',
+        'nav.experience': 'Experience',
+        'nav.contact': 'Contact',
+        'hero.kicker': 'Portfolio',
+        'hero.title': 'Computer Science student',
+        'hero.subtitle': 'Specialized in data administration and management',
+        'hero.desc': 'I’m not a developer: I’m a 2nd-year BUT Informatique student at IUT de Montreuil. I focus on data administration and management (modeling, relational databases, quality, and organization).',
+        'hero.cta.contact': 'Contact me',
+        'hero.cta.projects': 'View projects',
+        'hero.cta.photo': 'View photo portfolio',
+        'hero.focus.label': 'Focus',
+        'hero.focus.title': 'Data administration',
+        'hero.focus.desc': 'Modeling, organization, data quality, and consistency.',
+        'hero.tech.label': 'Tech',
+        'hero.tech.title': 'SQL, PostgreSQL, Python',
+        'hero.tech.desc': 'Queries, schema design, analysis, and data processing.',
+        'hero.availability.label': 'Availability',
+        'hero.availability.title': 'Internship Apr-Jun 2026',
+        'hero.availability.desc': 'April 13 to June 19, 2026, full-time.',
+        'about.title': 'About',
+        'about.study': 'BUT Informatique student specializing in data administration, management, and operations.',
+        'about.interests.label': 'Interests',
+        'about.interests.desc': 'Volunteer in the BAPS socio-spiritual association; beginner videographer and photographer.',
+        'about.stage': 'Currently looking for an internship from April 13 to June 19, 2026.',
+        'info.location.label': 'Location',
+        'info.location.value': 'Drancy, France',
+        'info.email.label': 'Email',
+        'info.phone.label': 'Phone',
+        'info.languages.label': 'Languages',
+        'info.languages.value': 'French, English, Gujarati, Hindi',
+        'skills.title': 'Skills',
+        'skills.languages': 'Languages',
+        'skills.databases': 'Databases',
+        'skills.tools': 'Tools & Environments',
+        'skills.frameworks': 'Frameworks',
+        'projects.title': 'Projects',
+        'projects.buvette.category': 'Web Development',
+        'projects.buvette.desc': 'Complete management platform for a snack bar with stock system, order management, and user authentication. Robust PHP/MySQL architecture.',
+        'projects.bataille.category': 'Game Development',
+        'projects.bataille.desc': 'Terminal-based Battleship game in Java: ship placement, turn-based play, and shot management.',
+        'projects.terraria.category': 'Game Development',
+        'projects.terraria.desc': 'Full 2D game built in JavaFX with advanced combat, dynamic exploration, and complex entity management.',
+        'projects.zelda.category': 'Game Development',
+        'projects.zelda.desc': 'Full 2D game built in JavaFX with advanced combat, dynamic exploration, and complex entity management.',
+        'projects.puissance.category': 'Algorithms & AI',
+        'projects.puissance.desc': 'Connect Four implementation with AI algorithms and performance optimizations.',
+        'projects.asterix.category': 'Database Design',
+        'projects.asterix.desc': 'Relational data modeling with advanced SQL queries and performance optimization.',
+        'projects.view.photos': 'View photos',
+        'experience.title': 'Experience',
+        'experience.education.label': 'Education',
+        'experience.education.but': 'BUT Informatique',
+        'experience.education.bac': 'Technological Baccalaureate',
+        'experience.work.label': 'Experience',
+        'experience.work.assistant': 'Assistant Manager',
+        'experience.work.receptionist': 'Receptionist',
+        'contact.title': 'Ready to work together?',
+        'contact.desc': 'Do you have an interesting project or an opportunity? I’d be happy to discuss how I could contribute.',
+        'contact.cv.label': 'Download my CV',
+        'contact.cv.fr': 'French CV',
+        'contact.cv.en': 'English CV',
+        'footer.copy': '© 2026 Kishan Patel - All rights reserved'
+    }
+};
+
+const themeLabels = {
+    fr: { dark: 'Mode sombre', light: 'Mode clair' },
+    en: { dark: 'Dark mode', light: 'Light mode' }
+};
+
 // Attendre que le DOM soit complètement chargé
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Theme Toggle
+    // Theme & language toggle
     const themeBtn = document.getElementById('themeBtn');
     if (!themeBtn) {
         return;
     }
+    const langBtn = document.getElementById('langBtn');
 
     // Basic copy/paste deterrent (not secure)
     document.body.classList.add('no-copy');
@@ -49,7 +194,38 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     const themeLabel = themeBtn.querySelector('.theme-label');
+    const langLabel = langBtn ? langBtn.querySelector('.lang-label') : null;
     const root = document.documentElement;
+
+    const updateThemeLabel = () => {
+        if (!themeLabel) {
+            return;
+        }
+        const labels = themeLabels[currentLang] || themeLabels.fr;
+        const isDark = root.classList.contains('dark');
+        themeLabel.textContent = isDark ? labels.light : labels.dark;
+    };
+
+    const updateLangLabel = () => {
+        if (!langLabel) {
+            return;
+        }
+        langLabel.textContent = currentLang === 'fr' ? 'English' : 'Français';
+    };
+
+    const applyTranslations = (lang) => {
+        currentLang = lang;
+        root.setAttribute('lang', lang);
+        const dict = translations[lang] || translations.fr;
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+            const key = el.dataset.i18n;
+            if (dict && Object.prototype.hasOwnProperty.call(dict, key)) {
+                el.textContent = dict[key];
+            }
+        });
+        updateThemeLabel();
+        updateLangLabel();
+    };
 
     // Initialize theme from localStorage
     let storedTheme = null;
@@ -61,10 +237,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (storedTheme === 'dark') {
         root.classList.add('dark');
-        if (themeLabel) {
-            themeLabel.textContent = 'Mode clair';
-        }
     }
+
+    // Initialize language from localStorage or browser preference
+    let storedLang = null;
+    try {
+        storedLang = localStorage.getItem('lang');
+    } catch (e) {
+        storedLang = null;
+    }
+    const browserLang = (navigator.language || '').toLowerCase();
+    const initialLang = storedLang || (browserLang.startsWith('fr') ? 'fr' : 'en');
+    applyTranslations(initialLang);
 
     themeBtn.addEventListener('click', () => {
         root.classList.toggle('dark');
@@ -74,10 +258,20 @@ document.addEventListener('DOMContentLoaded', function() {
         } catch (e) {
             // Ignore storage errors.
         }
-        if (themeLabel) {
-            themeLabel.textContent = isDark ? 'Mode clair' : 'Mode sombre';
-        }
+        updateThemeLabel();
     });
+
+    if (langBtn) {
+        langBtn.addEventListener('click', () => {
+            const nextLang = currentLang === 'fr' ? 'en' : 'fr';
+            try {
+                localStorage.setItem('lang', nextLang);
+            } catch (e) {
+                // Ignore storage errors.
+            }
+            applyTranslations(nextLang);
+        });
+    }
 
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -168,10 +362,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-// Gallery Data - REMPLACEZ PAR VOS VRAIES IMAGES
 const projectGalleries = {
     buvette: {
-        title: 'Buvette Associative',
+        title: {
+            fr: 'Buvette Associative',
+            en: 'Community Snack Bar'
+        },
         images: [
             'images/Projets/Buvettes-Images/accueil.png',
             'images/Projets/Buvettes-Images/connexion.png',
@@ -190,7 +386,10 @@ const projectGalleries = {
         ]
     },
     zelda: {
-        title: 'Zelda & Terraria-Like',
+        title: {
+            fr: 'Zelda & Terraria-Like',
+            en: 'Zelda & Terraria-Like'
+        },
         images: [
             'assets/projects/zelda/1.svg',
             'assets/projects/zelda/2.svg',
@@ -199,7 +398,10 @@ const projectGalleries = {
         ]
     },
     jeux: {
-        title: 'Jeux de Stratégie',
+        title: {
+            fr: 'Jeux de Stratégie',
+            en: 'Strategy Games'
+        },
         images: [
             'assets/projects/jeux/1.svg',
             'assets/projects/jeux/2.svg',
@@ -207,7 +409,10 @@ const projectGalleries = {
         ]
     },
     asterix: {
-        title: 'Parc Astérix',
+        title: {
+            fr: 'Parc Astérix',
+            en: 'Parc Astérix'
+        },
         images: [
             'assets/projects/asterix/1.svg',
             'assets/projects/asterix/2.svg',
@@ -230,8 +435,12 @@ function openGallery(projectId) {
         return;
     }
 
+    const titleText = typeof gallery.title === 'string'
+        ? gallery.title
+        : (gallery.title && (gallery.title[currentLang] || gallery.title.fr)) || '';
+
     // Set title
-    title.textContent = gallery.title;
+    title.textContent = titleText;
 
     // Clear and populate grid
     grid.innerHTML = '';
@@ -239,11 +448,11 @@ function openGallery(projectId) {
         const imgContainer = document.createElement('button');
         imgContainer.type = 'button';
         imgContainer.className = 'group relative overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm transition hover:-translate-y-1 dark:border-stone-800 dark:bg-stone-950';
-        imgContainer.onclick = () => openImageViewer(imageSrc, `${gallery.title} - Image ${index + 1}`);
+        imgContainer.onclick = () => openImageViewer(imageSrc, `${titleText} - Image ${index + 1}`);
 
         const img = document.createElement('img');
         img.src = imageSrc;
-        img.alt = `${gallery.title} - Image ${index + 1}`;
+        img.alt = `${titleText} - Image ${index + 1}`;
         img.loading = 'lazy';
         img.className = 'h-60 w-full object-cover transition duration-300 group-hover:scale-105';
 
