@@ -385,6 +385,19 @@ const projectGalleries = {
 
         ]
     },
+
+     bataillenavale: {
+        title: {
+            fr: 'Zelda & Terraria-Like',
+            en: 'Zelda & Terraria-Like'
+        },
+        images: [
+            'assets/projects/zelda/1.svg',
+            'assets/projects/zelda/2.svg',
+            'assets/projects/zelda/3.svg',
+            'assets/projects/zelda/4.svg'
+        ]
+    },
     zelda: {
         title: {
             fr: 'Zelda & Terraria-Like',
