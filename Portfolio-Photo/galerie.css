@@ -1,5 +1,4 @@
 
-@import "{{ site.theme }}";
 /* Galerie photo specific styles */
 .photo-media {
     aspect-ratio: 4 / 3;
