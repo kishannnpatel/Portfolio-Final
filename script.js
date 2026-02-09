@@ -385,6 +385,17 @@ const projectGalleries = {
 
         ]
     },
+    bataille: {
+        title: {
+            fr: 'Bataille-Navale',
+            en: 'Battleship'
+        },
+        images: [
+            'images/Projets/BatailleNavale/bataille-01.png',
+            'images/Projets/BatailleNavale/bataille-02.png',
+            'images/Projets/BatailleNavale/bataille-03.png'
+        ]
+    },
 
      bataillenavale: {
         title: {
