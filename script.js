@@ -11,7 +11,7 @@ const translations = {
         'hero.kicker': 'Portfolio',
         'hero.title': 'Étudiant en Informatique',
         'hero.subtitle': 'Spécialisé en administration, gestion et exploitation des données',
-        'hero.desc': "Je ne suis pas développeur : je suis étudiant en 2ème année de BUT Informatique à l'IUT de Montreuil. Je m’oriente vers l’administration et la gestion des données (modélisation, bases relationnelles, qualité et organisation).",
+        'hero.desc': "J e suis un étudiant en 2ème année de BUT Informatique à l'IUT de Montreuil. Je m’oriente vers l’administration et la gestion des données (modélisation, bases relationnelles, qualité et organisation).",
         'hero.cta.contact': 'Me contacter',
         'hero.cta.projects': 'Voir les projets',
         'hero.cta.photo': 'Voir le portfolio photo',
