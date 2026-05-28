@@ -1,4 +1,7 @@
 let currentLang = 'fr';
+let currentOpenGallery = null;
+let currentViewerImages = [];
+let currentViewerIndex = 0;
 
 const translations = {
     fr: {
@@ -11,7 +14,7 @@ const translations = {
         'hero.kicker': 'Portfolio',
         'hero.title': 'Étudiant en Informatique',
         'hero.subtitle': 'Spécialisé en administration, gestion et exploitation des données',
-        'hero.desc': "Je suis un étudiant en 2ème année de BUT Informatique à l'IUT de Montreuil. Je m’oriente vers l’administration et la gestion des données (modélisation, bases relationnelles, qualité et organisation).",
+        'hero.desc': "Je suis étudiant en 2ème année de BUT Informatique à l'IUT de Montreuil. Je m'oriente vers l'administration et la gestion des données (modélisation, bases relationnelles, qualité et organisation).",
         'hero.cta.contact': 'Me contacter',
         'hero.cta.projects': 'Voir les projets',
         'hero.cta.photo': 'Voir le portfolio photo',
@@ -21,14 +24,14 @@ const translations = {
         'hero.tech.label': 'Tech',
         'hero.tech.title': 'SQL, PostgreSQL, Python',
         'hero.tech.desc': 'Requêtes, conception de schémas, analyse et traitement des données.',
-        'hero.availability.label': 'Disponibilité',
-        'hero.availability.title': 'Stage avril-juin 2026',
-        'hero.availability.desc': 'Du 13 avril au 19 juin 2026, temps plein.',
+        'hero.availability.label': 'Stage en cours',
+        'hero.availability.title': 'Elementum',
+        'hero.availability.desc': 'Customer Experience · GenAI & Agentic AI — Avril – Juin 2026.',
         'about.title': 'À propos',
         'about.study': 'Étudiant en BUT Informatique, je me spécialise en administration, gestion et exploitation des données.',
-        'about.interests.label': 'Centres d’intérêt',
-        'about.interests.desc': 'Bénévole dans l’association socio-spirituelle BAPS, je suis aussi débutant en vidéaste et photographe.',
-        'about.stage': "Actuellement à la recherche d'un stage du 13 avril au 19 juin 2026.",
+        'about.interests.label': "Centres d'intérêt",
+        'about.interests.desc': "Bénévole dans l'association socio-spirituelle BAPS, je suis aussi débutant en vidéaste et photographe.",
+        'about.stage': "Actuellement en stage chez Elementum (avril – juin 2026).",
         'info.location.label': 'Localisation',
         'info.location.value': 'Drancy, France',
         'info.email.label': 'Email',
@@ -44,11 +47,11 @@ const translations = {
         'projects.buvette.category': 'Développement web',
         'projects.buvette.desc': 'Plateforme complète de gestion pour une buvette avec système de stocks, gestion des commandes et authentification utilisateurs. Architecture robuste en PHP/MySQL.',
         'projects.bataille.category': 'Développement de jeux',
-        'projects.bataille.desc': 'Jeu de Bataille Navale en Java sur terminal : placement des bateaux, tour par tour et gestion des tirs.',
+        'projects.bataille.desc': 'Jeu de Bataille Navale en Java sur terminal : placement des bateaux, tour par tour et gestion des tirs.',
         'projects.terraria.category': 'Développement de jeux',
         'projects.terraria.desc': "Jeu 2D complet développé en JavaFX avec système de combat avancé, exploration dynamique et gestion d'entités complexes.",
         'projects.zelda.category': 'Développement de jeux',
-        'projects.zelda.desc': "Jeu 2D complet développé en JavaFX avec système de combat avancé, exploration dynamique et gestion d'entités complexes.",
+        'projects.zelda.desc': "Jeu d'aventure 2D inspiré de Zelda, développé en JavaFX : exploration de donjon, combats et collecte d'objets.",
         'projects.puissance.category': 'Algorithmes & IA',
         'projects.puissance.desc': "Implémentation de Puissance 4 avec algorithmes d'IA avancés et optimisation des performances.",
         'projects.asterix.category': 'Conception de base de données',
@@ -59,14 +62,19 @@ const translations = {
         'experience.education.but': 'BUT Informatique',
         'experience.education.bac': 'Baccalauréat Technologique',
         'experience.work.label': 'Expérience',
+        'experience.work.intern': 'Stagiaire',
+        'experience.work.intern.status': 'En cours',
+        'experience.work.intern.desc': 'Customer Experience · GenAI & Agentic AI',
+        'experience.work.intern.supervisor': 'Encadré par un Solution Architect',
         'experience.work.assistant': 'Assistant du Gérant',
         'experience.work.receptionist': 'Réceptionniste',
-        'contact.title': 'Prêt à travailler ensemble ?',
-        'contact.desc': 'Vous avez un projet intéressant ou une opportunité ? Je serais ravi de discuter de comment je pourrais contribuer.',
+        'contact.title': 'Prêt à travailler ensemble ?',
+        'contact.desc': 'Vous avez un projet intéressant ou une opportunité ? Je serais ravi de discuter de comment je pourrais contribuer.',
         'contact.cv.label': 'Télécharger mon CV',
         'contact.cv.fr': 'CV Français',
         'contact.cv.en': 'CV Anglais',
-        'footer.copy': '© 2026 Kishan Patel - Tous droits réservés'
+        'footer.copy': '© 2026 Kishan Patel - Tous droits réservés',
+        'gallery.empty': 'Aucune image disponible pour ce projet.',
     },
     en: {
         'nav.about': 'About',
@@ -78,7 +86,7 @@ const translations = {
         'hero.kicker': 'Portfolio',
         'hero.title': 'Computer Science Student',
         'hero.subtitle': 'Specializing in data administration, management, and operations',
-        'hero.desc': 'I’m a 2nd-year Bachelor of Technology in Computer Science (BUT Informatique) student at IUT de Montreuil. I focus on data administration and management (data modeling, relational databases, data quality, and organization).',
+        'hero.desc': "I'm a 2nd-year Bachelor of Technology in Computer Science (BUT Informatique) student at IUT de Montreuil. I focus on data administration and management (data modeling, relational databases, data quality, and organization).",
         'hero.cta.contact': 'Contact me',
         'hero.cta.projects': 'View projects',
         'hero.cta.photo': 'View photo portfolio',
@@ -88,14 +96,14 @@ const translations = {
         'hero.tech.label': 'Tech',
         'hero.tech.title': 'SQL, PostgreSQL, Python',
         'hero.tech.desc': 'SQL queries, schema design, analysis, and data processing.',
-        'hero.availability.label': 'Availability',
-        'hero.availability.title': 'Internship Apr-Jun 2026',
-        'hero.availability.desc': 'April 13 to June 19, 2026, full-time.',
+        'hero.availability.label': 'Internship',
+        'hero.availability.title': 'Elementum',
+        'hero.availability.desc': 'Customer Experience · GenAI & Agentic AI — April – June 2026.',
         'about.title': 'About',
         'about.study': 'Bachelor of Technology in Computer Science (BUT Informatique) student specializing in data administration, management, and operations.',
         'about.interests.label': 'Interests',
         'about.interests.desc': 'Volunteer in the BAPS socio-spiritual association; beginner videographer and photographer.',
-        'about.stage': 'Currently looking for an internship from April 13 to June 19, 2026.',
+        'about.stage': 'Currently interning at Elementum (April – June 2026).',
         'info.location.label': 'Location',
         'info.location.value': 'Drancy, France',
         'info.email.label': 'Email',
@@ -115,7 +123,7 @@ const translations = {
         'projects.terraria.category': 'Game Development',
         'projects.terraria.desc': 'Full 2D game built in JavaFX with advanced combat, dynamic exploration, and complex entity management.',
         'projects.zelda.category': 'Game Development',
-        'projects.zelda.desc': 'Full 2D game built in JavaFX with advanced combat, dynamic exploration, and complex entity management.',
+        'projects.zelda.desc': '2D adventure game inspired by Zelda, built in JavaFX: dungeon exploration, combat, and item collection.',
         'projects.puissance.category': 'Algorithms & AI',
         'projects.puissance.desc': 'Connect Four implementation with AI algorithms and performance optimizations.',
         'projects.asterix.category': 'Database Design',
@@ -126,14 +134,19 @@ const translations = {
         'experience.education.but': 'Bachelor of Technology in Computer Science (BUT Informatique)',
         'experience.education.bac': 'Technological Baccalaureate',
         'experience.work.label': 'Experience',
+        'experience.work.intern': 'Intern',
+        'experience.work.intern.status': 'Ongoing',
+        'experience.work.intern.desc': 'Customer Experience · GenAI & Agentic AI',
+        'experience.work.intern.supervisor': 'Supervised by a Solution Architect',
         'experience.work.assistant': 'Assistant Manager',
         'experience.work.receptionist': 'Receptionist',
         'contact.title': 'Ready to work together?',
-        'contact.desc': 'Do you have an interesting project or an opportunity? I’d be happy to discuss how I can contribute.',
+        'contact.desc': "Do you have an interesting project or an opportunity? I'd be happy to discuss how I can contribute.",
         'contact.cv.label': 'Download my CV',
         'contact.cv.fr': 'French CV',
         'contact.cv.en': 'English CV',
-        'footer.copy': '© 2026 Kishan Patel - All rights reserved'
+        'footer.copy': '© 2026 Kishan Patel - All rights reserved',
+        'gallery.empty': 'No images available for this project.',
     }
 };
 
@@ -142,22 +155,15 @@ const themeLabels = {
     en: { dark: 'Dark mode', light: 'Light mode' }
 };
 
-// Attendre que le DOM soit complètement chargé
-document.addEventListener('DOMContentLoaded', function() {
-
-    // Theme & language toggle
+document.addEventListener('DOMContentLoaded', function () {
     const themeBtn = document.getElementById('themeBtn');
-    if (!themeBtn) {
-        return;
-    }
+    if (!themeBtn) return;
     const langBtn = document.getElementById('langBtn');
 
-    // Basic copy/paste deterrent (not secure)
+    // Basic copy/paste deterrent
     document.body.classList.add('no-copy');
     document.addEventListener('contextmenu', (e) => {
-        if (e.target && e.target.closest && e.target.closest('[data-allow-copy="true"]')) {
-            return;
-        }
+        if (e.target && e.target.closest && e.target.closest('[data-allow-copy="true"]')) return;
         e.preventDefault();
     });
 
@@ -165,30 +171,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const selection = window.getSelection && window.getSelection();
         if (selection && selection.toString()) {
             const anchor = selection.anchorNode && selection.anchorNode.parentElement;
-            if (anchor && anchor.closest('[data-allow-copy=\"true\"]')) {
-                return true;
-            }
+            if (anchor && anchor.closest('[data-allow-copy="true"]')) return true;
         }
         const active = document.activeElement;
-        if (active && active.closest('[data-allow-copy=\"true\"]')) {
-            return true;
-        }
+        if (active && active.closest('[data-allow-copy="true"]')) return true;
         return false;
     };
 
-    document.addEventListener('copy', (e) => {
-        if (isCopyAllowed()) {
-            return;
-        }
-        e.preventDefault();
-    });
+    document.addEventListener('copy', (e) => { if (!isCopyAllowed()) e.preventDefault(); });
     document.addEventListener('cut', (e) => e.preventDefault());
     document.addEventListener('dragstart', (e) => e.preventDefault());
     document.addEventListener('keydown', (e) => {
         if ((e.ctrlKey || e.metaKey) && ['c', 'x', 's', 'u', 'p'].includes(e.key.toLowerCase())) {
-            if (isCopyAllowed()) {
-                return;
-            }
+            if (isCopyAllowed()) return;
             e.preventDefault();
         }
     });
@@ -198,18 +193,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const root = document.documentElement;
 
     const updateThemeLabel = () => {
-        if (!themeLabel) {
-            return;
-        }
+        if (!themeLabel) return;
         const labels = themeLabels[currentLang] || themeLabels.fr;
-        const isDark = root.classList.contains('dark');
-        themeLabel.textContent = isDark ? labels.light : labels.dark;
+        themeLabel.textContent = root.classList.contains('dark') ? labels.light : labels.dark;
     };
 
     const updateLangLabel = () => {
-        if (!langLabel) {
-            return;
-        }
+        if (!langLabel) return;
         langLabel.textContent = currentLang === 'fr' ? 'English' : 'Français';
     };
 
@@ -227,53 +217,36 @@ document.addEventListener('DOMContentLoaded', function() {
         updateLangLabel();
     };
 
-    // Initialize theme from localStorage
+    // Initialize theme
     let storedTheme = null;
-    try {
-        storedTheme = localStorage.getItem('theme');
-    } catch (e) {
-        storedTheme = null;
-    }
+    try { storedTheme = localStorage.getItem('theme'); } catch (e) {}
+    if (storedTheme === 'dark') root.classList.add('dark');
 
-    if (storedTheme === 'dark') {
-        root.classList.add('dark');
-    }
-
-    // Initialize language from localStorage or browser preference
+    // Initialize language
     let storedLang = null;
-    try {
-        storedLang = localStorage.getItem('lang');
-    } catch (e) {
-        storedLang = null;
-    }
+    try { storedLang = localStorage.getItem('lang'); } catch (e) {}
     const browserLang = (navigator.language || '').toLowerCase();
     const initialLang = storedLang || (browserLang.startsWith('fr') ? 'fr' : 'en');
     applyTranslations(initialLang);
 
     themeBtn.addEventListener('click', () => {
+        root.classList.add('theme-transitioning');
         root.classList.toggle('dark');
         const isDark = root.classList.contains('dark');
-        try {
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        } catch (e) {
-            // Ignore storage errors.
-        }
+        try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
         updateThemeLabel();
+        setTimeout(() => root.classList.remove('theme-transitioning'), 300);
     });
 
     if (langBtn) {
         langBtn.addEventListener('click', () => {
             const nextLang = currentLang === 'fr' ? 'en' : 'fr';
-            try {
-                localStorage.setItem('lang', nextLang);
-            } catch (e) {
-                // Ignore storage errors.
-            }
+            try { localStorage.setItem('lang', nextLang); } catch (e) {}
             applyTranslations(nextLang);
         });
     }
 
-    // Mobile menu toggle
+    // Mobile menu
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navLinks = document.getElementById('navLinks');
 
@@ -286,7 +259,6 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenuBtn.textContent = navLinks.classList.contains('hidden') ? '☰' : '✕';
     });
 
-    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
@@ -294,11 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     navLinks.classList.add('hidden');
                     navLinks.classList.remove('flex', 'absolute', 'right-6', 'top-20');
                     mobileMenuBtn.textContent = '☰';
@@ -307,7 +275,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!e.target.closest('nav')) {
             navLinks.classList.add('hidden');
@@ -316,58 +283,88 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Scroll to top button
+    // Scroll to top
     const scrollTopBtn = document.getElementById('scrollTop');
-
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
+        if (window.scrollY > 300) {
             scrollTopBtn.classList.remove('hidden');
             scrollTopBtn.classList.add('flex');
         } else {
             scrollTopBtn.classList.add('hidden');
             scrollTopBtn.classList.remove('flex');
         }
+        updateActiveNav();
     });
 
-    scrollTopBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // Accessibility: Allow keyboard navigation for scroll to top
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     scrollTopBtn.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     });
 
-    // Performance: Lazy load images
-    if ('loading' in HTMLImageElement.prototype) {
-        const images = document.querySelectorAll('img[loading="lazy"]');
-        images.forEach(img => {
-            img.src = img.src;
-        });
-    } else {
-        // Fallback for browsers that don't support lazy loading
+    // Lazy load fallback
+    if (!('loading' in HTMLImageElement.prototype)) {
         const script = document.createElement('script');
         script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
         document.body.appendChild(script);
     }
 
+    initScrollReveal();
+    updateActiveNav();
 });
 
+// Active nav section tracking
+function updateActiveNav() {
+    const sections = ['about', 'skills', 'projects', 'experience', 'contact'];
+    const navAnchors = document.querySelectorAll('nav a[href^="#"]');
+    let activeHref = '';
+    const offset = 120;
+
+    for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= offset) {
+            activeHref = '#' + id;
+        }
+    }
+
+    navAnchors.forEach(a => {
+        if (a.getAttribute('href') === activeHref) {
+            a.classList.add('nav-active');
+        } else {
+            a.classList.remove('nav-active');
+        }
+    });
+}
+
+// Scroll reveal
+function initScrollReveal() {
+    const targets = document.querySelectorAll('[data-reveal]');
+    if (!targets.length) return;
+
+    if (!window.IntersectionObserver) {
+        targets.forEach(el => el.classList.add('is-visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+                const delay = entry.target.dataset.revealDelay || 0;
+                setTimeout(() => entry.target.classList.add('is-visible'), delay);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    targets.forEach(el => observer.observe(el));
+}
+
+// Project galleries
 const projectGalleries = {
     buvette: {
-        title: {
-            fr: 'Buvette Associative',
-            en: 'Community Snack Bar'
-        },
+        title: { fr: 'Buvette Associative', en: 'Community Snack Bar' },
         images: [
             'images/Projets/Buvettes-Images/accueil.png',
             'images/Projets/Buvettes-Images/connexion.png',
@@ -382,141 +379,145 @@ const projectGalleries = {
             'images/Projets/Buvettes-Images/client/historique.png',
             'images/Projets/Buvettes-Images/client/panier.png',
             'images/Projets/Buvettes-Images/client/produit.png',
-
         ]
     },
     bataille: {
-        title: {
-            fr: 'Bataille-Navale',
-            en: 'Battleship'
-        },
+        title: { fr: 'Bataille-Navale', en: 'Battleship' },
         images: [
             'images/Projets/BatailleNavale/bataille-01.png',
             'images/Projets/BatailleNavale/bataille-02.png',
             'images/Projets/BatailleNavale/bataille-03.png'
         ]
     },
-
-     bataillenavale: {
-        title: {
-            fr: 'Zelda & Terraria-Like',
-            en: 'Zelda & Terraria-Like'
-        },
-        images: [
-            'assets/projects/zelda/1.svg',
-            'assets/projects/zelda/2.svg',
-            'assets/projects/zelda/3.svg',
-            'assets/projects/zelda/4.svg'
-        ]
+    terraria: {
+        title: { fr: 'Terraria-Like', en: 'Terraria-Like' },
+        images: []
     },
     zelda: {
-        title: {
-            fr: 'Zelda & Terraria-Like',
-            en: 'Zelda & Terraria-Like'
-        },
-        images: [
-            'assets/projects/zelda/1.svg',
-            'assets/projects/zelda/2.svg',
-            'assets/projects/zelda/3.svg',
-            'assets/projects/zelda/4.svg'
-        ]
+        title: { fr: 'Zelda', en: 'Zelda' },
+        images: []
     },
     jeux: {
-        title: {
-            fr: 'Jeux de Stratégie',
-            en: 'Strategy Games'
-        },
-        images: [
-            'assets/projects/jeux/1.svg',
-            'assets/projects/jeux/2.svg',
-            'assets/projects/jeux/3.svg'
-        ]
+        title: { fr: 'Jeux de Stratégie', en: 'Strategy Games' },
+        images: []
     },
     asterix: {
-        title: {
-            fr: 'Parc Astérix',
-            en: 'Parc Astérix'
-        },
-        images: [
-            'assets/projects/asterix/1.svg',
-            'assets/projects/asterix/2.svg',
-            'assets/projects/asterix/3.svg',
-            'assets/projects/asterix/4.svg'
-        ]
+        title: { fr: 'Parc Astérix', en: 'Parc Astérix' },
+        images: []
     }
 };
 
-// Open Gallery Function
 function openGallery(projectId) {
     const modal = document.getElementById('galleryModal');
-    const title = document.getElementById('galleryTitle');
+    const titleEl = document.getElementById('galleryTitle');
     const grid = document.getElementById('galleryGrid');
-
     const gallery = projectGalleries[projectId];
 
     if (!gallery) {
-        console.error('Gallery not found for project:', projectId);
+        console.error('Gallery not found:', projectId);
         return;
     }
 
+    currentOpenGallery = projectId;
     const titleText = typeof gallery.title === 'string'
         ? gallery.title
-        : (gallery.title && (gallery.title[currentLang] || gallery.title.fr)) || '';
+        : (gallery.title[currentLang] || gallery.title.fr);
 
-    // Set title
-    title.textContent = titleText;
-
-    // Clear and populate grid
+    titleEl.textContent = titleText;
     grid.innerHTML = '';
-    gallery.images.forEach((imageSrc, index) => {
-        const imgContainer = document.createElement('button');
-        imgContainer.type = 'button';
-        imgContainer.className = 'group relative overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm transition hover:-translate-y-1 dark:border-stone-800 dark:bg-stone-950';
-        imgContainer.onclick = () => openImageViewer(imageSrc, `${titleText} - Image ${index + 1}`);
 
-        const img = document.createElement('img');
-        img.src = imageSrc;
-        img.alt = `${titleText} - Image ${index + 1}`;
-        img.loading = 'lazy';
-        img.className = 'h-60 w-full object-cover transition duration-300 group-hover:scale-105';
+    if (!gallery.images.length) {
+        const dict = translations[currentLang] || translations.fr;
+        grid.className = 'mt-6';
+        const empty = document.createElement('p');
+        empty.className = 'py-16 text-center text-stone-500 dark:text-stone-400';
+        empty.textContent = dict['gallery.empty'] || 'Aucune image disponible.';
+        grid.appendChild(empty);
+    } else {
+        grid.className = 'mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3';
+        gallery.images.forEach((imageSrc, index) => {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'group relative overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm transition hover:-translate-y-1 dark:border-stone-800 dark:bg-stone-950';
+            btn.onclick = () => openImageViewer(imageSrc, titleText + ' – ' + (index + 1), index);
 
-        imgContainer.appendChild(img);
-        grid.appendChild(imgContainer);
-    });
+            const img = document.createElement('img');
+            img.src = imageSrc;
+            img.alt = titleText + ' – ' + (index + 1);
+            img.loading = 'lazy';
+            img.className = 'h-60 w-full object-cover transition duration-300 group-hover:scale-105';
+            img.onerror = function () {
+                this.style.display = 'none';
+                const ph = document.createElement('div');
+                ph.className = 'flex h-60 items-center justify-center bg-stone-100 text-stone-400 dark:bg-stone-900';
+                ph.innerHTML = '<svg class="h-12 w-12 opacity-40" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>';
+                this.parentElement.appendChild(ph);
+            };
 
-    // Show modal
+            btn.appendChild(img);
+            grid.appendChild(btn);
+        });
+    }
+
     modal.classList.remove('hidden');
     modal.classList.add('flex');
     document.body.style.overflow = 'hidden';
 }
 
-// Close Gallery Function
 function closeGallery() {
     const modal = document.getElementById('galleryModal');
     modal.classList.add('hidden');
     modal.classList.remove('flex');
-    document.body.style.overflow = 'auto';
+    document.body.style.overflow = '';
+    currentOpenGallery = null;
 }
 
-// Close gallery when clicking on backdrop
 function closeGalleryOnBackdrop(event) {
-    if (event.target.id === 'galleryModal') {
-        closeGallery();
-    }
+    if (event.target.id === 'galleryModal') closeGallery();
 }
 
-// Open Image Viewer (fullscreen)
-function openImageViewer(imageSrc, altText) {
+function openImageViewer(imageSrc, altText, index) {
     const viewer = document.getElementById('imageViewer');
     const img = document.getElementById('viewerImage');
 
-    img.src = imageSrc;
-    img.alt = altText;
+    if (currentOpenGallery && projectGalleries[currentOpenGallery] && projectGalleries[currentOpenGallery].images.length) {
+        currentViewerImages = projectGalleries[currentOpenGallery].images;
+        currentViewerIndex = (index !== undefined) ? index : Math.max(0, currentViewerImages.indexOf(imageSrc));
+    } else {
+        currentViewerImages = [imageSrc];
+        currentViewerIndex = 0;
+    }
+
+    if (img) { img.src = imageSrc; img.alt = altText || ''; }
+    updateViewerUI();
     viewer.classList.remove('hidden');
     viewer.classList.add('flex');
 }
 
-// Close Image Viewer
+function updateViewerUI() {
+    const img = document.getElementById('viewerImage');
+    const counter = document.getElementById('viewerCounter');
+    const prevBtn = document.getElementById('viewerPrev');
+    const nextBtn = document.getElementById('viewerNext');
+    const src = currentViewerImages[currentViewerIndex];
+
+    if (img && src) img.src = src;
+    if (counter) {
+        counter.textContent = currentViewerImages.length > 1
+            ? (currentViewerIndex + 1) + ' / ' + currentViewerImages.length
+            : '';
+    }
+    const multi = currentViewerImages.length > 1;
+    if (prevBtn) prevBtn.style.display = multi ? '' : 'none';
+    if (nextBtn) nextBtn.style.display = multi ? '' : 'none';
+}
+
+function viewerNav(direction) {
+    if (!currentViewerImages.length) return;
+    currentViewerIndex = (currentViewerIndex + direction + currentViewerImages.length) % currentViewerImages.length;
+    updateViewerUI();
+}
+
 function closeImageViewer() {
     const viewer = document.getElementById('imageViewer');
     viewer.classList.add('hidden');
@@ -534,5 +535,8 @@ document.addEventListener('keydown', (e) => {
         } else if (!modal.classList.contains('hidden')) {
             closeGallery();
         }
+    } else if (!viewer.classList.contains('hidden')) {
+        if (e.key === 'ArrowLeft') viewerNav(-1);
+        else if (e.key === 'ArrowRight') viewerNav(1);
     }
 });

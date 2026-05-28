@@ -7,6 +7,43 @@ body {
     font-family: 'Inter', system-ui, sans-serif;
 }
 
+/* Smooth theme color transition (only when actively toggling) */
+.theme-transitioning,
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+    transition-property: background-color, border-color, color !important;
+    transition-duration: 0.25s !important;
+    transition-timing-function: ease !important;
+}
+
+/* Scroll reveal animation */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+[data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal],
+    [data-reveal].is-visible {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* Active nav link */
+nav a.nav-active {
+    font-weight: 600;
+    color: inherit;
+}
+
 /* Allow copy on marked sections */
 body.no-copy [data-allow-copy="true"],
 body.no-copy [data-allow-copy="true"] * {
