@@ -58,7 +58,7 @@
         };
 
         const addParticleField = (x, y, intensity) => {
-            const count = intensity ? 14 : 8;
+            const count = intensity ? 24 : 12;
 
             for (let index = 0; index < count; index += 1) {
                 const angle = Math.random() * Math.PI * 2;
@@ -69,7 +69,7 @@
                     velocityX: Math.cos(angle) * (Math.random() * 0.8),
                     velocityY: -0.25 - Math.random() * 0.9,
                     digit: Math.random() > 0.5 ? '1' : '0',
-                    opacity: 0.2 + Math.random() * 0.38,
+                    opacity: 0.26 + Math.random() * 0.36,
                     age: 0,
                     duration: 500 + Math.random() * 700
                 });
