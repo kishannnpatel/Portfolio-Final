@@ -6,7 +6,7 @@
   align-items:center;
   gap:.85rem;
   margin-top:1.9rem;
-  margin-left:auto;
+  margin-inline:auto;
   width:fit-content;
 }
 
