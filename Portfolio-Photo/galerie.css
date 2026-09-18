@@ -1,13 +1,41 @@
 /* ---------- portfolio photo — galerie ---------- */
 
+.galerie-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:2rem 3rem;
+}
+
+.galerie-heading{
+  flex:1 1 20rem;
+  min-width:20rem;
+}
+.galerie-heading h2{
+  font-size:1.65rem;
+  font-weight:700;
+  margin:0 0 .9rem;
+}
+.galerie-heading p.lede{
+  color:var(--ink-soft);
+  font-size:1.12rem;
+  max-width:44rem;
+  margin:0;
+}
+
 .galerie-actions{
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:.85rem;
-  margin-top:1.9rem;
-  margin-inline:auto;
-  width:fit-content;
+  flex:0 0 auto;
+}
+
+@media (max-width:640px){
+  .galerie-top{flex-direction:column;align-items:flex-start;}
+  .galerie-heading{min-width:0;}
+  .galerie-actions{align-items:flex-start;margin-top:.5rem;}
 }
 
 .photo-grid{
