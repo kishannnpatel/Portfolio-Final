@@ -1,497 +1,601 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kishan Patel - Étudiant en BUT Informatique spécialisé en administration et gestion des données.">
-    <title>Kishan Patel - Étudiant en Informatique</title>
-    <meta property="og:title" content="Kishan Patel – Portfolio">
-    <meta property="og:description" content="Étudiant en BUT Informatique spécialisé en administration et gestion des données. À la recherche d'une alternance ou d'un stage pour sa 3ᵉ année.">
+    <meta name="description" content="Kishan Patel — portfolio technique. Projets vérifiables (code GitHub, rapports, scripts SQL), spécialisation données.">
+    <title>Kishan Patel</title>
+    <meta property="og:title" content="Kishan Patel — Portfolio">
+    <meta property="og:description" content="Étudiant en BUT Informatique, spécialisation données. Projets vérifiables sur GitHub et documents à l'appui.">
     <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        (function () {
-            try {
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                }
-            } catch (e) {
-            }
-        })();
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        serif: ['\"Crimson Text\"', 'serif'],
-                        sans: ['Inter', 'system-ui', 'sans-serif']
-                    }
-                }
-            }
-        };
-        if (typeof tailwind !== 'undefined' && typeof tailwind.refresh === 'function') {
-            tailwind.refresh();
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('theme');
+          var dark = stored ? stored === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
 </head>
-<body class="bg-stone-50 text-stone-900 dark:bg-stone-950 dark:text-stone-100">
-
-<header class="sticky top-0 z-50 border-b border-stone-200/60 bg-stone-50/80 backdrop-blur dark:border-stone-800/60 dark:bg-stone-950/80">
-    <nav class="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-6 py-4">
-        <a href="#" class="flex items-center gap-3 font-serif text-xl tracking-wide">
-            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-stone-300/70 bg-white text-base font-semibold dark:border-stone-700 dark:bg-stone-900">KP</span>
-            <span class="hidden sm:block">Kishan Patel</span>
-        </a>
-
-        <ul class="hidden flex-col gap-4 rounded-2xl border border-stone-200 bg-white/95 p-6 text-sm font-medium shadow-xl shadow-stone-900/10 dark:border-stone-800 dark:bg-stone-900/95 md:static md:flex md:flex-row md:items-center md:border-0 md:bg-transparent md:p-0 md:shadow-none" id="navLinks">
-            <li><a class="hover:text-stone-500 dark:hover:text-stone-400" href="#about" data-i18n="nav.about">À propos</a></li>
-            <li><a class="hover:text-stone-500 dark:hover:text-stone-400" href="#skills" data-i18n="nav.skills">Compétences</a></li>
-            <li><a class="hover:text-stone-500 dark:hover:text-stone-400" href="#projects" data-i18n="nav.projects">Projets</a></li>
-            <li><a class="hover:text-stone-500 dark:hover:text-stone-400" href="Portfolio-Photo/galerie.html" data-i18n="nav.photo">Portfolio photo</a></li>
-            <li><a class="hover:text-stone-500 dark:hover:text-stone-400" href="#experience" data-i18n="nav.experience">Parcours</a></li>
-            <li><a class="hover:text-stone-500 dark:hover:text-stone-400" href="#contact" data-i18n="nav.contact">Contact</a></li>
-        </ul>
-        <div class="flex items-center gap-3">
-            <button class="rounded-lg border border-stone-300/70 p-2 text-xl transition hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:hover:bg-stone-100 dark:hover:text-stone-900 md:hidden" id="mobileMenuBtn" aria-label="Toggle menu">☰</button>
-            <button class="rounded-lg border border-stone-300/70 px-4 py-2 text-sm font-semibold transition hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:hover:bg-stone-100 dark:hover:text-stone-900" id="themeBtn" aria-label="Toggle theme">
-                <span class="theme-label">Mode sombre</span>
-            </button>
-            <button class="rounded-lg border border-stone-300/70 px-4 py-2 text-sm font-semibold transition hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:hover:bg-stone-100 dark:hover:text-stone-900" id="langBtn" aria-label="Toggle language">
-                <span class="lang-label">English</span>
-            </button>
-        </div>
+<body>
+<div id="topbar">
+  <div class="wrap">
+    <span class="name">Kishan Patel</span>
+    <nav>
+      <a href="#apropos" data-i18n="nav.apropos">À propos</a>
+      <a href="#competences" data-i18n="nav.competences">Compétences</a>
+      <a href="#projets" data-i18n="nav.projets">Projets</a>
+      <a href="#portfolio-photo" data-i18n="nav.photoportfolio">Portfolio photo</a>
+      <a href="#resultats" data-i18n="nav.resultats">Résultats</a>
+      <a href="#parcours" data-i18n="nav.parcours">Parcours</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <div class="topbar-toggles">
+        <button id="langToggle" type="button" class="mono">EN</button>
+        <button id="themeToggle" type="button" class="mono">Sombre</button>
+      </div>
     </nav>
-</header>
+  </div>
+</div>
 
 <main>
-    <section class="relative overflow-hidden">
-        <div class="pointer-events-none absolute inset-0">
-            <div class="absolute -left-24 top-10 h-72 w-72 rounded-full bg-amber-200/40 blur-3xl dark:bg-amber-500/20"></div>
-            <div class="absolute right-0 top-32 h-72 w-72 rounded-full bg-cyan-200/40 blur-3xl dark:bg-cyan-500/20"></div>
+  <section id="intro" style="border-top:none;">
+    <div class="wrap">
+      <div class="intro-flex">
+        <div class="intro-text">
+          <h1 data-i18n="intro.h1">Étudiant en BUT Informatique, spécialisation données</h1>
+          <p class="role" data-i18n="intro.role">2ᵉ année · IUT de Montreuil, Université Paris 8 · Drancy (93)</p>
+          <p data-i18n="intro.p">Je suis étudiant en 2ᵉ année de BUT Informatique, parcours Administration, Gestion et Exploitation des Données. Cette page rassemble mes projets avec, pour chacun, le code source ou les documents qui permettent de vérifier ce que j'ai réellement fait — plutôt qu'une liste de compétences à prendre pour argent comptant.</p>
+          <p class="meta-line" data-i18n="intro.meta">Recherche une alternance pour 2026 / 2027 — kishan.patel21@outlook.fr</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#contact" data-i18n="hero.contact">Me contacter</a>
+            <a class="btn" href="#projets" data-i18n="hero.viewprojects">Voir les projets</a>
+            <a class="btn" href="#portfolio-photo" data-i18n="hero.viewphoto">Voir le portfolio photo</a>
+          </div>
         </div>
-        <div class="relative mx-auto flex min-h-[70vh] w-full max-w-6xl flex-col justify-center gap-10 px-6 py-20">
-            <div class="max-w-2xl">
-                <p class="mb-3 text-sm uppercase tracking-[0.3em] text-stone-500" data-i18n="hero.kicker">Portfolio</p>
-                <h1 class="font-serif text-4xl leading-tight sm:text-5xl lg:text-6xl" data-i18n="hero.title">Étudiant en Informatique</h1>
-                <p class="font-serif text-4xl leading-none sm:text-4xl lg:text-3xl lg:whitespace-nowrap" data-i18n="hero.subtitle">Spécialisé en administration, gestion et exploitation des données</p>
-                <p class="mt-6 text-lg text-stone-600 dark:text-stone-300" data-i18n="hero.desc">Je suis étudiant en 2ème année de BUT Informatique à l'IUT de Montreuil. Je m’oriente vers l’administration et la gestion des données (modélisation, bases relationnelles, qualité et organisation).</p>
-                <div class="mt-8 flex flex-wrap gap-3">
-                    <a href="#contact" class="rounded-full bg-stone-900 px-6 py-3 text-sm font-semibold text-stone-50 transition hover:-translate-y-0.5 hover:bg-stone-800 dark:bg-stone-100 dark:text-stone-900" data-i18n="hero.cta.contact">Me contacter</a>
-                    <a href="#projects" class="rounded-full border border-stone-300 px-6 py-3 text-sm font-semibold text-stone-900 transition hover:-translate-y-0.5 hover:border-stone-900 hover:text-stone-700 dark:border-stone-700 dark:text-stone-100 dark:hover:border-stone-300" data-i18n="hero.cta.projects">Voir les projets</a>
-                    <a href="Portfolio-Photo/galerie.html" class="rounded-full border border-stone-300 px-6 py-3 text-sm font-semibold text-stone-900 transition hover:-translate-y-0.5 hover:border-stone-900 hover:text-stone-700 dark:border-stone-700 dark:text-stone-100 dark:hover:border-stone-300" data-i18n="hero.cta.photo">Voir le portfolio photo</a>
-                </div>
-            </div>
-            <div class="grid gap-4 sm:grid-cols-3">
-                <div class="rounded-2xl border border-stone-200 bg-white/80 p-5 shadow-sm dark:border-stone-800 dark:bg-stone-900/80">
-                    <p class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="hero.focus.label">Focus</p>
-                    <p class="mt-2 text-base font-semibold" data-i18n="hero.focus.title">Administration & données</p>
-                    <p class="mt-2 text-sm text-stone-600 dark:text-stone-400" data-i18n="hero.focus.desc">Modélisation, organisation, qualité et cohérence des données.</p>
-                </div>
-                <div class="rounded-2xl border border-stone-200 bg-white/80 p-5 shadow-sm dark:border-stone-800 dark:bg-stone-900/80">
-                    <p class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="hero.tech.label">Tech</p>
-                    <p class="mt-2 text-base font-semibold" data-i18n="hero.tech.title">SQL, PostgreSQL, Python</p>
-                    <p class="mt-2 text-sm text-stone-600 dark:text-stone-400" data-i18n="hero.tech.desc">Requêtes, conception de schémas, analyse et traitement des données.</p>
-                </div>
-                <div class="rounded-2xl border border-stone-200 bg-white/80 p-5 shadow-sm dark:border-stone-800 dark:bg-stone-900/80">
-                    <p class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="hero.availability.label">Disponible</p>
-                    <p class="mt-2 text-base font-semibold" data-i18n="hero.availability.title">Alternance ou stage</p>
-                    <p class="mt-2 text-sm text-stone-600 dark:text-stone-400" data-i18n="hero.availability.desc">Pour ma 3ᵉ année de BUT Informatique.</p>
-                </div>
-            </div>
+        <div class="intro-photo">
+          <img src="images/PP/pp-web.jpg" alt="Photo de Kishan Patel" data-i18n-alt="intro.photoalt" width="480" height="565">
         </div>
-    </section>
-
-    <section class="border-t border-stone-200 bg-white/70 py-16 dark:border-stone-800 dark:bg-stone-900/30" id="about" data-reveal>
-        <div class="mx-auto grid w-full max-w-6xl gap-12 px-6 lg:grid-cols-[1.2fr_0.8fr]">
-            <div>
-                <h2 class="font-serif text-3xl" data-i18n="about.title">À propos</h2>
-                <p class="mt-6 text-base leading-relaxed text-stone-600 dark:text-stone-300" data-i18n="about.study">Étudiant en BUT Informatique, je me spécialise en administration, gestion et exploitation des données.</p>
-                <p class="mt-6 text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="about.interests.label">Centres d’intérêt</p>
-                <p class="mt-3 text-base leading-relaxed text-stone-600 dark:text-stone-300" data-i18n="about.interests.desc">Bénévole dans l’association socio-spirituelle BAPS, je suis aussi débutant en vidéaste et photographe.</p>
-                <p class="mt-6 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-semibold text-amber-700 dark:border-amber-900 dark:bg-amber-900/30 dark:text-amber-200" data-i18n="about.stage">Je suis actuellement à la recherche d’une opportunité d’alternance ou de stage pour ma 3ᵉ année.</p>
-            </div>
-            <div class="space-y-6">
-                <div class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <p class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="info.location.label">Localisation</p>
-                    <p class="mt-2 text-base font-semibold" data-i18n="info.location.value">Drancy, France</p>
-                </div>
-                <div class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-800 dark:bg-stone-950" data-allow-copy="true">
-                    <p class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="info.email.label">Email</p>
-                    <p class="mt-2 text-base font-semibold"><a class="hover:text-stone-500" href="mailto:kishan.patel21@outlook.fr">kishan.patel21@outlook.fr</a></p>
-                </div>
-                <div class="rounded-2xl border border-stone-200 bg-white p-5 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <p class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="info.languages.label">Langues</p>
-                    <p class="mt-2 text-base font-semibold" data-i18n="info.languages.value">Français, Anglais, Gujarati, Hindi</p>
-                </div>
-            </div>
+      </div>
+      <div class="intro-cards">
+        <div class="intro-card">
+          <span class="card-label" data-i18n="intro.card1.label">Spécialisation</span>
+          <span class="card-value" data-i18n="intro.card1.value">Administration, gestion et exploitation des données</span>
         </div>
-    </section>
-
-    <section class="border-t border-stone-200 py-16 dark:border-stone-800" id="skills" data-reveal>
-        <div class="mx-auto w-full max-w-6xl px-6">
-            <h2 class="font-serif text-3xl" data-i18n="skills.title">Compétences</h2>
-            <div class="mt-10 grid gap-6 lg:grid-cols-2">
-                <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <h3 class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="skills.languages">Langages</h3>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" loading="lazy">Python</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" loading="lazy">Java</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy">JavaScript</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="PHP" loading="lazy">PHP</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="C" loading="lazy">C</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="SQL" loading="lazy">SQL</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML" loading="lazy">HTML</span>
-                    </div>
-                </div>
-                <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <h3 class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="skills.databases">Bases de données</h3>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" loading="lazy">PostgreSQL</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB" loading="lazy">MongoDB</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" loading="lazy">MySQL</span>
-                    </div>
-                </div>
-                <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <h3 class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="skills.tools">Outils & Environnements</h3>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" alt="Git" loading="lazy">Git</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" alt="Linux" loading="lazy">Linux</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/apple/apple-original.svg" alt="macOS" loading="lazy">macOS</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/windows8/windows8-original.svg" alt="Windows" loading="lazy">Windows</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VSCode" loading="lazy">VSCode</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/intellij/intellij-original.svg" alt="IntelliJ" loading="lazy">IntelliJ</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/pycharm/pycharm-original.svg" alt="PyCharm" loading="lazy">PyCharm</span>
-                    </div>
-                </div>
-                <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <h3 class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="skills.frameworks">Frameworks</h3>
-                    <div class="mt-4 flex flex-wrap gap-2">
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg" alt="JavaFX" loading="lazy">JavaFX</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg" alt="Flask" loading="lazy">Flask</span>
-                        <span class="inline-flex items-center gap-2 rounded-full border border-stone-200 px-3 py-2 text-sm dark:border-stone-700"><img class="h-4 w-4" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/junit/junit-original.svg" alt="JUnit" loading="lazy">JUnit</span>
-                    </div>
-                </div>
-            </div>
+        <div class="intro-card">
+          <span class="card-label" data-i18n="intro.card2.label">Stack principal</span>
+          <span class="card-value" data-i18n="intro.card2.value">SQL · PostgreSQL · Java · PHP</span>
         </div>
-    </section>
-
-    <section class="border-t border-stone-200 bg-white/70 py-16 dark:border-stone-800 dark:bg-stone-900/30" id="projects" data-reveal>
-        <div class="mx-auto w-full max-w-6xl px-6">
-            <h2 class="font-serif text-3xl" data-i18n="projects.title">Projets</h2>
-            <div class="mt-10 grid gap-6">
-                <article class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <div class="flex flex-wrap items-center justify-between gap-3">
-                        <p class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="projects.buvette.category">Web Development</p>
-                        <span class="text-sm text-stone-500">2025-2026</span>
-                    </div>
-                    <h3 class="mt-3 font-serif text-2xl">Buvette Associative</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-stone-600 dark:text-stone-300" data-i18n="projects.buvette.desc">Plateforme complète de gestion pour une buvette avec système de stocks, gestion des commandes et authentification utilisateurs. Architecture robuste en PHP/MySQL.</p>
-                    <div class="mt-4 flex flex-wrap gap-2 text-xs text-stone-500">
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">PHP</span>
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">MySQL</span>
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">HTML/CSS</span>
-                    </div>
-                    <div class="mt-5 flex flex-wrap gap-3">
-                        <button class="rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold transition hover:border-stone-900 hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:hover:border-stone-100 dark:hover:bg-stone-100 dark:hover:text-stone-900" onclick="openGallery('buvette')" data-i18n="projects.view.photos">Voir les photos</button>
-                        <a href="https://github.com/DUT-Info-Montreuil/SAE_PHP_WEB_Lokmen-Kishan-Yoann" class="inline-flex items-center gap-2 rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-900 transition hover:border-stone-900 hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:text-stone-100 dark:hover:border-stone-100 dark:hover:bg-stone-100 dark:hover:text-stone-900" target="_blank" rel="noopener noreferrer">
-                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.35-1.19-3.35-1.19-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.54 2.36 1.1 2.93.84.09-.66.35-1.1.63-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.7-.1-.25-.45-1.27.1-2.64 0 0 .85-.27 2.78 1.03A9.6 9.6 0 0 1 12 6.8c.85 0 1.7.12 2.5.35 1.93-1.3 2.78-1.03 2.78-1.03.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.7 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/>
-                            </svg>
-                            GitHub
-                        </a>
-                    </div>
-                </article>
-
-                <article class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <div class="flex flex-wrap items-center justify-between gap-3">
-                        <p class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="projects.bataille.category">Game Development</p>
-                        <span class="text-sm text-stone-500">2025</span>
-                    </div>
-                    <h3 class="mt-3 font-serif text-2xl">Bataille-Navale</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-stone-600 dark:text-stone-300" data-i18n="projects.bataille.desc">Jeu de Bataille Navale en Java sur terminal : placement des bateaux, tour par tour et gestion des tirs.</p>
-                    <div class="mt-4 flex flex-wrap gap-2 text-xs text-stone-500">
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">Java</span>
-                    </div>
-                    <div class="mt-5 flex flex-wrap gap-3">
-                        <button class="rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold transition hover:border-stone-900 hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:hover:border-stone-100 dark:hover:bg-stone-100 dark:hover:text-stone-900" onclick="openGallery('bataille')" data-i18n="projects.view.photos">Voir les photos</button>
-                        <a href="https://github.com/kishannnpatel/Bataille-Navale" class="inline-flex items-center gap-2 rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-900 transition hover:border-stone-900 hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:text-stone-100 dark:hover:border-stone-100 dark:hover:bg-stone-100 dark:hover:text-stone-900" target="_blank" rel="noopener noreferrer">
-                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.35-1.19-3.35-1.19-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.54 2.36 1.1 2.93.84.09-.66.35-1.1.63-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.7-.1-.25-.45-1.27.1-2.64 0 0 .85-.27 2.78 1.03A9.6 9.6 0 0 1 12 6.8c.85 0 1.7.12 2.5.35 1.93-1.3 2.78-1.03 2.78-1.03.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.7 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/>
-                            </svg>
-                            GitHub
-                        </a>
-                    </div>
-                </article>
-
-                <article class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <div class="flex flex-wrap items-center justify-between gap-3">
-                        <p class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="projects.terraria.category">Game Development</p>
-                        <span class="text-sm text-stone-500">2024</span>
-                    </div>
-                    <h3 class="mt-3 font-serif text-2xl">Terraria-Like</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-stone-600 dark:text-stone-300" data-i18n="projects.terraria.desc">Jeu 2D complet développé en JavaFX avec système de combat avancé, exploration dynamique et gestion d'entités complexes.</p>
-                    <div class="mt-4 flex flex-wrap gap-2 text-xs text-stone-500">
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">JavaFX</span>
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">Java</span>
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">Game Design</span>
-                    </div>
-                    <div class="mt-5 flex flex-wrap gap-3">
-                        <button class="rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold transition hover:border-stone-900 hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:hover:border-stone-100 dark:hover:bg-stone-100 dark:hover:text-stone-900" onclick="openGallery('terraria')" data-i18n="projects.view.photos">Voir les photos</button>
-                        <a href="https://github.com/DUT-Info-Montreuil/SAE_DEV_Kishan_Yoann_Lokmen" class="inline-flex items-center gap-2 rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-900 transition hover:border-stone-900 hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:text-stone-100 dark:hover:border-stone-100 dark:hover:bg-stone-100 dark:hover:text-stone-900" target="_blank" rel="noopener noreferrer">
-                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.35-1.19-3.35-1.19-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.54 2.36 1.1 2.93.84.09-.66.35-1.1.63-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.7-.1-.25-.45-1.27.1-2.64 0 0 .85-.27 2.78 1.03A9.6 9.6 0 0 1 12 6.8c.85 0 1.7.12 2.5.35 1.93-1.3 2.78-1.03 2.78-1.03.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.7 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/>
-                            </svg>
-                            GitHub
-                        </a>
-                    </div>
-                </article>
-
-                <article class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <div class="flex flex-wrap items-center justify-between gap-3">
-                        <p class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="projects.zelda.category">Game Development</p>
-                        <span class="text-sm text-stone-500">2023</span>
-                    </div>
-                    <h3 class="mt-3 font-serif text-2xl">Zelda</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-stone-600 dark:text-stone-300" data-i18n="projects.zelda.desc">Jeu d'aventure 2D inspiré de Zelda, développé en JavaFX : exploration de donjon, combats et collecte d'objets.</p>
-                    <div class="mt-4 flex flex-wrap gap-2 text-xs text-stone-500">
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">JavaFX</span>
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">Java</span>
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">Game Design</span>
-                    </div>
-
-                    <div class="mt-5 flex flex-wrap gap-3">
-                        <button class="rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold transition hover:border-stone-900 hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:hover:border-stone-100 dark:hover:bg-stone-100 dark:hover:text-stone-900" onclick="openGallery('zelda')" data-i18n="projects.view.photos">Voir les photos</button>
-                        <a href="https://github.com/kishannnpatel/Zeldiamonds" class="inline-flex items-center gap-2 rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-900 transition hover:border-stone-900 hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:text-stone-100 dark:hover:border-stone-100 dark:hover:bg-stone-100 dark:hover:text-stone-900" target="_blank" rel="noopener noreferrer">
-                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.35-1.19-3.35-1.19-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.54 2.36 1.1 2.93.84.09-.66.35-1.1.63-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.7-.1-.25-.45-1.27.1-2.64 0 0 .85-.27 2.78 1.03A9.6 9.6 0 0 1 12 6.8c.85 0 1.7.12 2.5.35 1.93-1.3 2.78-1.03 2.78-1.03.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.7 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/>
-                            </svg>
-                            GitHub
-                        </a>
-                    </div>
-                </article>
-
-                <article class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <div class="flex flex-wrap items-center justify-between gap-3">
-                        <p class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="projects.puissance.category">Algorithms & IA</p>
-                        <span class="text-sm text-stone-500">2023</span>
-                    </div>
-                    <h3 class="mt-3 font-serif text-2xl">Puissance 4</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-stone-600 dark:text-stone-300" data-i18n="projects.puissance.desc">Implémentation de Puissance 4 avec algorithmes d'IA avancés et optimisation des performances.</p>
-                    <div class="mt-4 flex flex-wrap gap-2 text-xs text-stone-500">
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">Java</span>
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">Algorithms</span>
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">IA</span>
-                    </div>
-                    <div class="mt-5 flex flex-wrap gap-3">
-                        <button class="rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold transition hover:border-stone-900 hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:hover:border-stone-100 dark:hover:bg-stone-100 dark:hover:text-stone-900" onclick="openGallery('jeux')" data-i18n="projects.view.photos">Voir les photos</button>
-                        <a href="https://github.com/kishannnpatel/-Puissance-4-JAVA" class="inline-flex items-center gap-2 rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-900 transition hover:border-stone-900 hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:text-stone-100 dark:hover:border-stone-100 dark:hover:bg-stone-100 dark:hover:text-stone-900" target="_blank" rel="noopener noreferrer">
-                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.35-1.19-3.35-1.19-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.54 2.36 1.1 2.93.84.09-.66.35-1.1.63-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.7-.1-.25-.45-1.27.1-2.64 0 0 .85-.27 2.78 1.03A9.6 9.6 0 0 1 12 6.8c.85 0 1.7.12 2.5.35 1.93-1.3 2.78-1.03 2.78-1.03.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.7 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/>
-                            </svg>
-                            GitHub
-                        </a>
-                    </div>
-                </article>
-
-                <article class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <div class="flex flex-wrap items-center justify-between gap-3">
-                        <p class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="projects.asterix.category">Database Design</p>
-                        <span class="text-sm text-stone-500">2023</span>
-                    </div>
-                    <h3 class="mt-3 font-serif text-2xl">Parc Astérix</h3>
-                    <p class="mt-3 text-sm leading-relaxed text-stone-600 dark:text-stone-300" data-i18n="projects.asterix.desc">Modélisation de données relationnelles complexes avec requêtes SQL avancées et optimisation des performances.</p>
-                    <div class="mt-4 flex flex-wrap gap-2 text-xs text-stone-500">
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">SQL</span>
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">PostgreSQL</span>
-                        <span class="rounded-full border border-stone-200 px-3 py-1 dark:border-stone-700">Database</span>
-                    </div>
-                    <div class="mt-5 flex flex-wrap gap-3">
-                        <button class="rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold transition hover:border-stone-900 hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:hover:border-stone-100 dark:hover:bg-stone-100 dark:hover:text-stone-900" onclick="openGallery('asterix')" data-i18n="projects.view.photos">Voir les photos</button>
-                        <a href="https://github.com/kishannnpatel" class="inline-flex items-center gap-2 rounded-full border border-stone-300 px-4 py-2 text-sm font-semibold text-stone-900 transition hover:border-stone-900 hover:bg-stone-900 hover:text-stone-50 dark:border-stone-700 dark:text-stone-100 dark:hover:border-stone-100 dark:hover:bg-stone-100 dark:hover:text-stone-900" target="_blank" rel="noopener noreferrer">
-                            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.35-1.19-3.35-1.19-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.54 2.36 1.1 2.93.84.09-.66.35-1.1.63-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.7-.1-.25-.45-1.27.1-2.64 0 0 .85-.27 2.78 1.03A9.6 9.6 0 0 1 12 6.8c.85 0 1.7.12 2.5.35 1.93-1.3 2.78-1.03 2.78-1.03.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.7 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/>
-                            </svg>
-                            GitHub
-                        </a>
-                    </div>
-                </article>
-            </div>
+        <div class="intro-card">
+          <span class="card-label" data-i18n="intro.card3.label">Disponibilité</span>
+          <span class="card-value" data-i18n="intro.card3.value">Alternance 2026 / 2027</span>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="border-t border-stone-200 py-16 dark:border-stone-800" id="experience" data-reveal>
-        <div class="mx-auto w-full max-w-6xl px-6">
-            <h2 class="font-serif text-3xl" data-i18n="experience.title">Parcours</h2>
-            <div class="mt-10 grid gap-8 lg:grid-cols-2">
-
-                <!-- Formation -->
-                <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <h3 class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="experience.education.label">Formation</h3>
-                    <div class="ml-2 mt-6 border-l-2 border-stone-200 pl-5 dark:border-stone-800">
-                        <div class="relative pb-6">
-                            <span class="absolute -left-[26px] top-1 flex h-2.5 w-2.5 items-center justify-center rounded-full bg-stone-900 ring-2 ring-white dark:bg-stone-100 dark:ring-stone-950"></span>
-                            <p class="text-sm font-semibold" data-i18n="experience.education.but">BUT Informatique</p>
-                            <p class="text-sm text-stone-600 dark:text-stone-400">IUT de Montreuil – Université Paris 8</p>
-                            <p class="mt-0.5 text-xs text-stone-400">2023 – 2027</p>
-                        </div>
-                        <div class="relative">
-                            <span class="absolute -left-[26px] top-1 flex h-2.5 w-2.5 items-center justify-center rounded-full border-2 border-stone-300 bg-white dark:border-stone-600 dark:bg-stone-950"></span>
-                            <p class="text-sm font-semibold" data-i18n="experience.education.bac">Baccalauréat Technologique</p>
-                            <p class="text-sm text-stone-600 dark:text-stone-400">Lycée Marcel Cachin – Saint-Ouen</p>
-                            <p class="mt-0.5 text-xs text-stone-400">2020 – 2023</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Expérience -->
-                <div class="rounded-2xl border border-stone-200 bg-white p-6 shadow-sm dark:border-stone-800 dark:bg-stone-950">
-                    <h3 class="text-xs uppercase tracking-[0.2em] text-stone-500" data-i18n="experience.work.label">Expérience</h3>
-                    <div class="ml-2 mt-6 border-l-2 border-stone-200 pl-5 dark:border-stone-800">
-
-                        <!-- Elementum — entrée la plus récente -->
-                        <div class="relative pb-6">
-                            <span class="absolute -left-[26px] top-1 flex h-2.5 w-2.5 items-center justify-center rounded-full bg-stone-900 ring-2 ring-white dark:bg-stone-100 dark:ring-stone-950"></span>
-                            <p class="text-sm font-semibold" data-i18n="experience.work.intern">Stagiaire</p>
-                            <p class="text-sm font-medium text-stone-700 dark:text-stone-300">Elementum</p>
-                            <p class="text-xs text-stone-500" data-i18n="experience.work.intern.desc">Customer Experience · GenAI &amp; Agentic AI</p>
-                            <p class="text-xs text-stone-400 dark:text-stone-500" data-i18n="experience.work.intern.supervisor">Encadré par un Solution Architect</p>
-                            <p class="mt-0.5 text-xs text-stone-400">Avr. 2026 – Juin 2026</p>
-                        </div>
-
-                        <!-- J'adore Paris -->
-                        <div class="relative pb-6">
-                            <span class="absolute -left-[26px] top-1 flex h-2.5 w-2.5 items-center justify-center rounded-full border-2 border-stone-300 bg-white dark:border-stone-600 dark:bg-stone-950"></span>
-                            <p class="text-sm font-semibold" data-i18n="experience.work.assistant">Assistant du Gérant</p>
-                            <p class="text-sm text-stone-600 dark:text-stone-400">J'adore Paris</p>
-                            <p class="mt-0.5 text-xs text-stone-400">Depuis 2021</p>
-                        </div>
-
-                        <!-- NaanShaan -->
-                        <div class="relative pb-6">
-                            <span class="absolute -left-[26px] top-1 flex h-2.5 w-2.5 items-center justify-center rounded-full border-2 border-stone-300 bg-white dark:border-stone-600 dark:bg-stone-950"></span>
-                            <p class="text-sm font-semibold" data-i18n="experience.work.assistant">Assistant du Gérant</p>
-                            <p class="text-sm text-stone-600 dark:text-stone-400">NaanShaan Restaurants</p>
-                            <p class="mt-0.5 text-xs text-stone-400">Juin 2024 – Sept. 2024</p>
-                        </div>
-
-                        <!-- FastHotel -->
-                        <div class="relative">
-                            <span class="absolute -left-[26px] top-1 flex h-2.5 w-2.5 items-center justify-center rounded-full border-2 border-stone-300 bg-white dark:border-stone-600 dark:bg-stone-950"></span>
-                            <p class="text-sm font-semibold" data-i18n="experience.work.receptionist">Réceptionniste</p>
-                            <p class="text-sm text-stone-600 dark:text-stone-400">FastHotel Dijon</p>
-                            <p class="mt-0.5 text-xs text-stone-400">Juin – Juil. 2022</p>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
+  <section id="apropos">
+    <div class="wrap">
+      <div class="section-label" data-i18n="apropos.label">À propos</div>
+      <h2 data-i18n="apropos.h2">Qui je suis</h2>
+      <div class="about-body">
+        <div class="about-text">
+          <p data-i18n="apropos.p1">Étudiant en BUT Informatique, je me spécialise en administration, gestion et exploitation des données — modélisation, bases relationnelles, qualité et organisation de l'information.</p>
+          <p data-i18n="apropos.p2">Bénévole dans l'association socio-spirituelle BAPS, je suis aussi débutant en vidéaste et photographe — mon portfolio photo est présenté plus bas sur cette page.</p>
+          <p data-i18n="apropos.p3">Je suis actuellement à la recherche d'une opportunité d'alternance ou de stage pour ma 3ᵉ année de BUT.</p>
         </div>
-    </section>
-
-    <section class="border-t border-stone-200 bg-stone-900 py-16 text-stone-50 dark:border-stone-800" id="contact">
-        <div class="mx-auto w-full max-w-6xl px-6 text-center">
-            <h2 class="font-serif text-3xl" data-i18n="contact.title">Prêt à travailler ensemble ?</h2>
-            <p class="mt-4 text-base text-stone-300" data-i18n="contact.desc">Vous avez un projet intéressant ou une opportunité ? Je serais ravi de discuter de comment je pourrais contribuer.</p>
-
-            <div class="mt-10 flex flex-nowrap items-center justify-center gap-3 overflow-x-auto pb-2 pt-6">
-                    <a href="mailto:kishan.patel21@outlook.fr" data-allow-copy="true" class="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-stone-50 px-6 py-3 text-sm font-semibold text-stone-900 transition hover:-translate-y-0.5">
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M4 6h16v12H4z"></path>
-                            <path d="m4 7 8 6 8-6"></path>
-                        </svg>
-                        kishan.patel21@outlook.fr
-                    </a>
-                    <a href="https://github.com/kishannnpatel" class="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-stone-500 px-4 py-2 text-stone-50 transition hover:-translate-y-0.5 hover:border-stone-50" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.6-3.35-1.19-3.35-1.19-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.54 2.36 1.1 2.93.84.09-.66.35-1.1.63-1.35-2.22-.25-4.56-1.11-4.56-4.95 0-1.1.39-2 1.03-2.7-.1-.25-.45-1.27.1-2.64 0 0 .85-.27 2.78 1.03A9.6 9.6 0 0 1 12 6.8c.85 0 1.7.12 2.5.35 1.93-1.3 2.78-1.03 2.78-1.03.55 1.37.2 2.39.1 2.64.64.7 1.03 1.6 1.03 2.7 0 3.85-2.34 4.7-4.57 4.95.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/>
-                        </svg>
-                        GitHub
-                    </a>
-                    <a href="https://www.linkedin.com/in/kishan-patel-260275263/" class="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-stone-500 px-4 py-2 text-stone-50 transition hover:-translate-y-0.5 hover:border-stone-50" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path d="M4.98 3.5a2.5 2.5 0 1 0 .02 5 2.5 2.5 0 0 0-.02-5zM3 8.98h4v12H3v-12zM9 8.98h3.8v1.64h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1v6.32h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.97v5.69H9v-12z"/>
-                        </svg>
-                        LinkedIn
-                    </a>
-                <div class="relative ml-12 flex flex-nowrap items-center gap-3 lg:ml-16">
-                    <p class="pointer-events-none absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-[10px] uppercase tracking-[0.3em] text-stone-400" data-i18n="contact.cv.label">Télécharger mon CV</p>
-                    <a href="images/CV/french/Kishan_Patel_Stage_CV.pdf" class="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-stone-500 px-4 py-2 text-sm font-semibold text-stone-50 transition hover:-translate-y-0.5 hover:border-stone-50" download>
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M12 3v12"></path>
-                            <path d="m7 10 5 5 5-5"></path>
-                            <path d="M5 21h14"></path>
-                        </svg>
-                        <span data-i18n="contact.cv.fr">CV Français</span>
-                    </a>
-                    <a href="images/CV/english/Patel_Kishan_Internship_CV.pdf" class="inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-stone-500 px-4 py-2 text-sm font-semibold text-stone-50 transition hover:-translate-y-0.5 hover:border-stone-50" download>
-                        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                            <path d="M12 3v12"></path>
-                            <path d="m7 10 5 5 5-5"></path>
-                            <path d="M5 21h14"></path>
-                        </svg>
-                        <span data-i18n="contact.cv.en">CV English</span>
-                    </a>
-                </div>
-            </div>
+        <div class="about-facts">
+          <div class="about-fact">
+            <span class="f-label" data-i18n="apropos.loclabel">Localisation</span>
+            <span class="f-value">Drancy, France</span>
+          </div>
+          <div class="about-fact">
+            <span class="f-label" data-i18n="apropos.emaillabel">Email</span>
+            <span class="f-value">kishan.patel21@outlook.fr</span>
+          </div>
+          <div class="about-fact">
+            <span class="f-label" data-i18n="apropos.langlabel">Langues</span>
+            <span class="f-value" data-i18n="apropos.langvalue">Français, Anglais, Gujarati, Hindi</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences">
+    <div class="wrap">
+      <div class="section-label" data-i18n="competences.label">Compétences</div>
+      <h2 data-i18n="competences.h2">Ce que je sais faire, et où le vérifier</h2>
+      <p class="lede" data-i18n="competences.lede">Les langages et outils que j'utilise, et plus bas, où vérifier certaines compétences en pratique.</p>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <h3 data-i18n="competences.skill.langages">Langages</h3>
+          <ul><li>Python</li><li>Java</li><li>JavaScript</li><li>PHP</li><li>C</li><li>SQL</li><li>HTML</li></ul>
+        </div>
+        <div class="skill-cat">
+          <h3 data-i18n="competences.skill.bdd">Bases de données</h3>
+          <ul><li>PostgreSQL</li><li>MongoDB</li><li>MySQL</li></ul>
+        </div>
+        <div class="skill-cat">
+          <h3 data-i18n="competences.skill.outils">Outils &amp; environnements</h3>
+          <ul><li>Git</li><li>Linux</li><li>macOS</li><li>Windows</li><li>VSCode</li><li>IntelliJ</li><li>PyCharm</li></ul>
+        </div>
+        <div class="skill-cat">
+          <h3 data-i18n="competences.skill.frameworks">Frameworks</h3>
+          <ul><li>JavaFX</li><li>Flask</li><li>JUnit</li></ul>
+        </div>
+      </div>
+      <div class="competences-subhead" data-i18n="competences.subhead">Où le vérifier</div>
+      <table class="proof">
+        <tr><th data-i18n="competences.th1">Compétence</th><th data-i18n="competences.th2">Preuve</th></tr>
+        <tr><td data-i18n="competences.r1.a">Modélisation de données — schéma relationnel et modèle en étoile / constellation</td><td><a href="#projet-air" data-i18n="proj.air.title">Data Warehouse — Qualité de l'air</a></td></tr>
+        <tr><td data-i18n="competences.r2.a">Écriture et optimisation de requêtes SQL (ROLLUP, CUBE, EXPLAIN ANALYZE)</td><td><a href="#projet-air" data-i18n="proj.air.title">Data Warehouse — Qualité de l'air</a></td></tr>
+        <tr><td data-i18n="competences.r3.a">Architecture PHP MVC, gestion de sessions, protection CSRF</td><td><a href="#projet-buvette" data-i18n="proj.buvette.title">Buvette Associative</a></td></tr>
+        <tr><td data-i18n="competences.r4.a">Programmation orientée objet en Java, interfaces JavaFX</td><td><a href="#projet-zelda" data-i18n="proj.zelda.title">Zelda</a></td></tr>
+        <tr><td data-i18n="competences.r5.a">Algorithmique de jeu (stratégie, tour par tour)</td><td><a href="#projet-puissance4" data-i18n="proj.p4.title">Puissance 4</a>, <a href="#projet-bataille" data-i18n="proj.bataille.title">Bataille Navale</a></td></tr>
+        <tr><td data-i18n="competences.r6.a">Visualisation et analyse de données avec Qlik Sense</td><td><a href="#resultats" data-i18n="competences.r6.b">Dashboard de résultats</a></td></tr>
+      </table>
+    </div>
+  </section>
+
+  <section id="projets">
+    <div class="wrap">
+      <div class="section-label" data-i18n="projets.label">Projets</div>
+      <h2 data-i18n="projets.h2">Projets académiques &amp; personnels</h2>
+      <p class="lede" data-i18n="projets.lede">Du plus récent au plus ancien. Les projets de groupe sont indiqués comme tels.</p>
+
+      <div class="projects-grid">
+      <div class="project" id="projet-air">
+        <div class="project-head">
+          <h3 data-i18n="proj.air.title">Data Warehouse — Qualité de l'air</h3>
+          <span class="project-date">2025 – 2026 · SAÉ S4.C.01</span>
+        </div>
+        <span class="badge" data-i18n="proj.air.badge">Groupe de 4 — K. Patel, A. Soran, E. Thileepan, A. Boulfrad</span>
+        <p class="desc" data-i18n="proj.air.desc">Construction d'un entrepôt de données à partir de trois sources publiques (OpenAQ, World Cities, World Bank) : modélisation d'un schéma relationnel normalisé puis d'un modèle en constellation (tables de faits <span class="mono">FAIT_MESURE</span> / <span class="mono">FAIT_INDICATEUR</span> et 5 dimensions), suivie d'une comparaison de performance entre les deux modèles sur des requêtes OLAP (<span class="mono">ROLLUP</span>, <span class="mono">CUBE</span>) mesurée avec <span class="mono">EXPLAIN ANALYZE</span>. Visualisation finale sous Qlik Sense.</p>
+        <div class="stack"><b>Stack</b> PostgreSQL · SQL · Qlik Sense (.qvf)</div>
+        <div class="fig-pair">
+          <figure>
+            <img src="images/Projets/QualiteDeLair/VISUALISATION_SAE/schema-constellation.png" alt="Schéma en constellation de l'entrepôt de données qualité de l'air" data-i18n-alt="proj.air.fig1alt" loading="lazy">
+            <figcaption data-i18n="proj.air.fig1cap">Modèle en constellation — 2 tables de faits, 5 dimensions</figcaption>
+          </figure>
+          <figure>
+            <img src="images/Projets/QualiteDeLair/VISUALISATION_SAE/schema-mld.png" alt="Modèle logique de données relationnel" data-i18n-alt="proj.air.fig2alt" loading="lazy">
+            <figcaption data-i18n="proj.air.fig2cap">MLD du schéma relationnel source</figcaption>
+          </figure>
+        </div>
+        <p class="more-note" data-i18n="proj.air.more">Rapport complet, scripts SQL et fichier Qlik <a href="https://github.com/kishannnpatel/SAE-Visualisation-Qualite-Air" target="_blank" rel="noopener noreferrer">sur GitHub</a></p>
+        <div class="proofs">
+          <a href="https://github.com/kishannnpatel/SAE-Visualisation-Qualite-Air" target="_blank" rel="noopener noreferrer" data-i18n="proj.air.proof">Code &amp; documents (GitHub)</a>
+        </div>
+      </div>
+
+      <div class="project" id="projet-buvette">
+        <div class="project-head">
+          <h3 data-i18n="proj.buvette.title">Buvette Associative</h3>
+          <span class="project-date">2024 – 2025</span>
+        </div>
+        <span class="badge" data-i18n="proj.buvette.badge">Groupe de 3 — avec Lokmen &amp; Yoann</span>
+        <p class="desc" data-i18n="proj.buvette.desc">Plateforme de gestion pour une buvette associative : 4 rôles utilisateurs, base de données sur 19 tables, gestion des stocks et des commandes, authentification et protection CSRF. Architecture PHP en MVC.</p>
+        <div class="stack"><b>Stack</b> PHP · MVC · MySQL</div>
+        <figure>
+          <video src="images/Projets/Buvettes-Images/buvette-demo.mp4" controls playsinline preload="metadata"></video>
+          <figcaption data-i18n="proj.buvette.figcap">Démonstration de l'application</figcaption>
+        </figure>
+        <p class="more-note" data-i18n="proj.buvette.more">Code complet <a href="https://github.com/DUT-Info-Montreuil/SAE_PHP_WEB_Lokmen-Kishan-Yoann" target="_blank" rel="noopener noreferrer">sur GitHub</a></p>
+        <div class="proofs">
+          <a href="https://github.com/DUT-Info-Montreuil/SAE_PHP_WEB_Lokmen-Kishan-Yoann" target="_blank" rel="noopener noreferrer" data-i18n="proj.buvette.proof">Code source (GitHub)</a>
+        </div>
+      </div>
+
+      <div class="project" id="projet-puissance4">
+        <div class="project-head">
+          <h3 data-i18n="proj.p4.title">Puissance 4</h3>
+          <span class="project-date">2023 – 2024</span>
+        </div>
+        <span class="badge" data-i18n="proj.solo">Solo</span>
+        <p class="desc" data-i18n="proj.p4.desc">Implémentation de Puissance 4 en Java avec un adversaire piloté par un algorithme de recherche, et un travail d'optimisation sur le temps de calcul des coups.</p>
+        <div class="stack"><b>Stack</b> Java</div>
+        <div class="proofs">
+          <a href="https://github.com/kishannnpatel/-Puissance-4-JAVA" target="_blank" rel="noopener noreferrer" data-i18n="proj.p4.proof">Code source (GitHub)</a>
+        </div>
+      </div>
+
+      <div class="project" id="projet-zelda">
+        <div class="project-head">
+          <h3 data-i18n="proj.zelda.title">Zelda</h3>
+          <span class="project-date">2023 – 2024</span>
+        </div>
+        <span class="badge" data-i18n="proj.solo">Solo</span>
+        <p class="desc" data-i18n="proj.zelda.desc">Jeu d'aventure 2D inspiré de Zelda, développé en JavaFX : exploration de donjon, combats et collecte d'objets.</p>
+        <div class="stack"><b>Stack</b> Java · JavaFX</div>
+        <div class="proofs">
+          <a href="https://github.com/kishannnpatel/Zeldiamonds" target="_blank" rel="noopener noreferrer" data-i18n="proj.zelda.proof">Code source (GitHub)</a>
+        </div>
+      </div>
+
+      <div class="project" id="projet-bataille">
+        <div class="project-head">
+          <h3 data-i18n="proj.bataille.title">Bataille Navale</h3>
+          <span class="project-date">2023 – 2024</span>
+        </div>
+        <span class="badge" data-i18n="proj.solo">Solo</span>
+        <p class="desc" data-i18n="proj.bataille.desc">Jeu de bataille navale en Java, jouable dans le terminal : placement des bateaux, déroulement au tour par tour, gestion des tirs et détection de victoire.</p>
+        <div class="stack"><b>Stack</b> Java</div>
+        <div class="fig-pair">
+          <figure>
+            <img src="images/Projets/BatailleNavale/bataille-01.png" alt="Capture d'écran du jeu Bataille Navale en terminal" data-i18n-alt="proj.bataille.fig1alt" loading="lazy">
+            <figcaption data-i18n="proj.bataille.fig1cap">Partie en cours</figcaption>
+          </figure>
+          <figure>
+            <img src="images/Projets/BatailleNavale/bataille-02.png" alt="Capture d'écran du jeu Bataille Navale en terminal, suite de la partie" data-i18n-alt="proj.bataille.fig2alt" loading="lazy">
+            <figcaption data-i18n="proj.bataille.fig2cap">Tirs et suivi de la grille</figcaption>
+          </figure>
+        </div>
+        <p class="more-note" data-i18n="proj.bataille.more">Code complet <a href="https://github.com/kishannnpatel/Bataille-Navale" target="_blank" rel="noopener noreferrer">sur GitHub</a></p>
+        <div class="proofs">
+          <a href="https://github.com/kishannnpatel/Bataille-Navale" target="_blank" rel="noopener noreferrer" data-i18n="proj.bataille.proof">Code source (GitHub)</a>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="portfolio-photo">
+    <div class="wrap">
+      <div class="section-label" data-i18n="photoportfolio.label">Portfolio photo</div>
+      <h2 data-i18n="photoportfolio.h2">Vidéaste et photographe débutant</h2>
+      <p class="lede" data-i18n="photoportfolio.lede">En dehors de l'informatique, je pratique la photo et la vidéo. Une galerie séparée rassemble ce travail.</p>
+      <div class="photo-cta">
+        <p data-i18n="photoportfolio.desc">Portraits, événements et captations vidéo — la galerie complète est hébergée séparément.</p>
+        <a class="btn btn-primary" href="https://kishanpatel.fr/Portfolio-Photo/galerie.html" target="_blank" rel="noopener noreferrer" data-i18n="photoportfolio.cta">Voir la galerie →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="resultats">
+    <div class="wrap">
+      <div class="section-label" data-i18n="resultats.label">Résultats académiques</div>
+      <h2 data-i18n="resultats.h2">Mes notes, analysées avec Qlik Sense</h2>
+      <p class="lede" data-i18n="resultats.lede">Un dashboard que j'ai construit moi-même à partir de mes résultats sur les 4 semestres du BUT — matières, compétences visées, évolution des moyennes.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="n">12.12</div><div class="l" data-i18n="resultats.stat1">Moyenne générale</div></div>
+        <div class="stat"><div class="n">18.5</div><div class="l" data-i18n="resultats.stat2">Meilleure note</div></div>
+        <div class="stat"><div class="n">72</div><div class="l" data-i18n="resultats.stat3">Matières / projets suivis</div></div>
+      </div>
+      <figure>
+        <img src="images/Resultats/qlik-dashboard.png" alt="Dashboard Qlik Sense présentant l'analyse des notes de Kishan Patel sur le BUT Informatique" data-i18n-alt="resultats.figalt" loading="lazy">
+        <figcaption data-i18n="resultats.figcap">Dashboard Qlik Sense — Analyse de ma progression en BUT Informatique</figcaption>
+      </figure>
+      <blockquote>
+        <span data-i18n="resultats.quote">« On remarque que je suis plus à l'aise dans certaines compétences comme la programmation ou le SQL, que j'ai beaucoup pratiquées pendant l'année. Mes résultats sont globalement assez réguliers, même si certaines matières m'ont posé plus de difficultés. »</span>
+        <cite data-i18n="resultats.cite">— extrait de mon analyse personnelle, dashboard Qlik Sense, sept. 2026</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="parcours">
+    <div class="wrap">
+      <div class="section-label" data-i18n="parcours.label">Parcours</div>
+      <h2 data-i18n="parcours.h2">Formation &amp; expérience</h2>
+
+      <div class="track-col-label" data-i18n="parcours.formation">Formation</div>
+      <div class="track">
+        <div class="track-item">
+          <div class="when">2023 — 2027</div>
+          <div>
+            <h4 data-i18n="parcours.f1.h4">BUT Informatique, 2ᵉ année</h4>
+            <div class="org">IUT de Montreuil · Université Paris 8</div>
+            <div class="d" data-i18n="parcours.f1.d">Spécialisation Administration, Gestion et Exploitation des Données.</div>
+          </div>
+        </div>
+        <div class="track-item">
+          <div class="when">2020 — 2023</div>
+          <div>
+            <h4 data-i18n="parcours.f2.h4">Baccalauréat Technologique</h4>
+            <div class="org">Lycée Marcel Cachin, Saint-Ouen</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="track-col-label" data-i18n="parcours.experience">Expérience</div>
+      <div class="track">
+        <div class="track-item">
+          <div class="when">04 — 06 / 2026</div>
+          <div>
+            <h4 data-i18n="parcours.e1.h4">Stagiaire — Customer Experience</h4>
+            <div class="org" data-i18n="parcours.e1.org">Elementum (via auto-entrepreneur)</div>
+            <div class="d" data-i18n="parcours.e1.d">Automatisations et paramétrage d'agents IA pour un client du secteur du luxe.</div>
+          </div>
+        </div>
+        <div class="track-item">
+          <div class="when" data-i18n="parcours.since2026">Depuis 2026</div>
+          <div>
+            <h4 data-i18n="parcours.e2.h4">Associé — Société Civile Immobilière</h4>
+            <div class="org" data-i18n="parcours.e2.org">SCI familiale</div>
+            <div class="d" data-i18n="parcours.e2.d">Gestion et suivi d'un patrimoine immobilier familial.</div>
+          </div>
+        </div>
+        <div class="track-item">
+          <div class="when" data-i18n="parcours.since2021">Depuis 2021</div>
+          <div>
+            <h4 data-i18n="parcours.e3.h4">Collaborateur familial</h4>
+            <div class="org">J'adore Paris · NaanShaan</div>
+            <div class="d" data-i18n="parcours.e3.d">Gestion des stocks, relation client et suivi administratif.</div>
+          </div>
+        </div>
+        <div class="track-item">
+          <div class="when">06 — 07 / 2022</div>
+          <div>
+            <h4 data-i18n="parcours.e4.h4">Réceptionniste</h4>
+            <div class="org">Fasthotel Dijon</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="section-label" data-i18n="contact.label">Contact</div>
+      <div class="contact-top">
+        <div class="contact-heading">
+          <h2 data-i18n="contact.h2">Me contacter</h2>
+          <p class="lede" data-i18n="contact.lede">À la recherche d'une alternance informatique pour 2026 / 2027 — data, backend ou développement applicatif.</p>
+        </div>
+        <div class="contact-social">
+          <a class="contact-chip" href="mailto:kishan.patel21@outlook.fr"><span class="k" data-i18n="contact.email">email</span> kishan.patel21@outlook.fr</a>
+          <a class="contact-chip" href="https://github.com/kishannnpatel" target="_blank" rel="noopener noreferrer"><span class="k">GitHub</span> kishannnpatel</a>
+          <a class="contact-chip" href="https://www.linkedin.com/in/kishan-patel-260275263/" target="_blank" rel="noopener noreferrer"><span class="k">LinkedIn</span> kishan-patel</a>
+        </div>
+      </div>
+      <div class="cv-group">
+        <span class="cv-label" data-i18n="contact.cvlabel">Télécharger mon CV</span>
+        <div class="cv-buttons">
+          <a class="contact-chip" href="images/CV/french/Kishan_Patel_Stage_CV.pdf" download>CV <span data-i18n="contact.cvfr">Français</span></a>
+          <a class="contact-chip" href="images/CV/english/Patel_Kishan_Internship_CV.pdf" download>CV <span data-i18n="contact.cven">English</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer class="border-t border-stone-200 bg-white py-8 text-center text-xs text-stone-500 dark:border-stone-800 dark:bg-stone-950">
-    <span data-i18n="footer.copy">© 2026 Kishan Patel - Tous droits réservés</span>
+<footer id="site-footer">
+  <div class="wrap">
+    <div class="footer-copy"><span data-i18n="footer.copy">© <span id="year"></span> Kishan Patel — Tous droits réservés</span></div>
+    <div class="footer-updated" data-i18n="footer.updated">Dernière mise à jour : septembre 2026</div>
+  </div>
 </footer>
 
-<button class="fixed bottom-6 right-6 hidden h-12 w-12 items-center justify-center rounded-full bg-stone-900 text-lg text-stone-50 shadow-lg transition hover:-translate-y-1 dark:bg-stone-100 dark:text-stone-900" id="scrollTop" aria-label="Scroll to top">↑</button>
+<button id="backToTop" type="button" title="Retour en haut">↑</button>
 
-<!-- Modal Gallery -->
-<div id="galleryModal" role="dialog" aria-modal="true" aria-labelledby="galleryTitle" class="fixed inset-0 z-50 hidden bg-black/70 p-4 overflow-y-auto" onclick="closeGalleryOnBackdrop(event)">
-    <div class="relative mx-auto w-full max-w-6xl py-8" onclick="event.stopPropagation()">
-        <button onclick="closeGallery()" class="absolute -top-2 right-2 text-white transition hover:text-stone-300" aria-label="Close gallery">
-            <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
-        </button>
-        <div class="max-h-[85vh] overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl dark:bg-stone-900">
-            <div class="flex items-center justify-between">
-                <h3 id="galleryTitle" class="text-2xl font-semibold text-stone-900 dark:text-stone-50"></h3>
-            </div>
-            <div id="galleryGrid" class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
-        </div>
-    </div>
-</div>
+<script>
+  var y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
 
-<!-- Fullscreen Image Viewer -->
-<div id="imageViewer" role="dialog" aria-modal="true" aria-label="Visionneuse d'images" class="fixed inset-0 z-[60] hidden items-center justify-center bg-black/90" onclick="closeImageViewer()">
-    <button onclick="closeImageViewer()" class="absolute right-6 top-6 text-white transition hover:text-stone-300" aria-label="Fermer">
-        <svg class="h-10 w-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-    </button>
-    <button id="viewerPrev" onclick="event.stopPropagation(); viewerNav(-1)" class="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-black/30 p-3 text-white transition hover:bg-black/60 focus:outline-none" aria-label="Image précédente">
-        <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-        </svg>
-    </button>
-    <img id="viewerImage" src="" alt="" class="max-h-[80vh] max-w-[80vw] rounded-xl object-contain shadow-2xl" onclick="event.stopPropagation()">
-    <button id="viewerNext" onclick="event.stopPropagation(); viewerNav(1)" class="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-black/30 p-3 text-white transition hover:bg-black/60 focus:outline-none" aria-label="Image suivante">
-        <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-        </svg>
-    </button>
-    <div id="viewerCounter" class="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-black/40 px-4 py-1 text-sm text-white tabular-nums"></div>
-</div>
+  (function () {
+    var btn = document.getElementById('backToTop');
+    if (!btn) return;
+    var toggle = function () {
+      if (window.scrollY > window.innerHeight * 0.6) btn.classList.add('visible');
+      else btn.classList.remove('visible');
+    };
+    toggle();
+    window.addEventListener('scroll', toggle, { passive: true });
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
 
-<script src="script.js"></script>
-<script src="binary-background.js"></script>
+  (function () {
+    var btn = document.getElementById('themeToggle');
+    if (!btn) return;
+    var root = document.documentElement;
+    var setLabel = function () {
+      var lang = root.getAttribute('lang') === 'en' ? 'en' : 'fr';
+      var dark = root.classList.contains('dark');
+      btn.textContent = lang === 'en' ? (dark ? 'Light' : 'Dark') : (dark ? 'Clair' : 'Sombre');
+    };
+    setLabel();
+    btn.addEventListener('click', function () {
+      root.classList.toggle('dark');
+      try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch (e) {}
+      setLabel();
+    });
+    window.__updateThemeLabel = setLabel;
+  })();
+
+  (function () {
+    var TEXT_EN = {
+      'nav.apropos':'About',
+      'nav.competences':'Skills',
+      'nav.projets':'Projects',
+      'nav.photoportfolio':'Photo portfolio',
+      'nav.resultats':'Results',
+      'nav.parcours':'Background',
+      'nav.contact':'Contact',
+
+      'intro.h1':'BUT Computer Science student, data track',
+      'intro.role':'2nd year · IUT de Montreuil, Université Paris 8 · Drancy, France',
+      'intro.p':'I’m a second-year BUT Informatique student, majoring in Data Administration, Management and Processing. This page collects my projects, each with the source code or documents needed to verify what I actually did — rather than a list of skills to take at face value.',
+      'intro.meta':'Looking for a work-study placement (alternance) for 2026 / 2027 — kishan.patel21@outlook.fr',
+      'intro.card1.label':'Specialization',
+      'intro.card1.value':'Data administration, management and processing',
+      'intro.card2.label':'Main stack',
+      'intro.card2.value':'SQL · PostgreSQL · Java · PHP',
+      'intro.card3.label':'Availability',
+      'intro.card3.value':'Work-study (alternance) 2026 / 2027',
+
+      'hero.contact':'Get in touch',
+      'hero.viewprojects':'View projects',
+      'hero.viewphoto':'View photo portfolio',
+
+      'apropos.label':'About',
+      'apropos.h2':'Who I am',
+      'apropos.p1':'A BUT Informatique student, I’m specializing in data administration, management and processing — modeling, relational databases, data quality and organization.',
+      'apropos.p2':'A volunteer with the BAPS socio-spiritual association, I’m also a beginner videographer and photographer — my photo portfolio is featured further down this page.',
+      'apropos.p3':'I’m currently looking for a work-study (alternance) or internship placement for my 3rd year of BUT.',
+      'apropos.loclabel':'Location',
+      'apropos.emaillabel':'Email',
+      'apropos.langlabel':'Languages',
+      'apropos.langvalue':'French, English, Gujarati, Hindi',
+
+      'competences.label':'Skills',
+      'competences.h2':'What I can do, and where to check it',
+      'competences.lede':'The languages and tools I use, and further down, where to check certain skills in practice.',
+      'competences.skill.langages':'Languages',
+      'competences.skill.bdd':'Databases',
+      'competences.skill.outils':'Tools &amp; environments',
+      'competences.skill.frameworks':'Frameworks',
+      'competences.subhead':'Where to check it',
+      'competences.th1':'Skill',
+      'competences.th2':'Proof',
+      'competences.r1.a':'Data modeling — relational schema and star / constellation model',
+      'competences.r2.a':'Writing and optimizing SQL queries (ROLLUP, CUBE, EXPLAIN ANALYZE)',
+      'competences.r3.a':'PHP MVC architecture, session management, CSRF protection',
+      'competences.r4.a':'Object-oriented programming in Java, JavaFX interfaces',
+      'competences.r5.a':'Game algorithms (strategy, turn-based)',
+      'competences.r6.a':'Data visualization and analysis with Qlik Sense',
+      'competences.r6.b':'Results dashboard',
+
+      'projets.label':'Projects',
+      'projets.h2':'Academic &amp; personal projects',
+      'projets.lede':'Most recent first. Group projects are labeled as such.',
+
+      'proj.air.title':'Data Warehouse — Air Quality',
+      'proj.air.badge':'Group of 4 — K. Patel, A. Soran, E. Thileepan, A. Boulfrad',
+      'proj.air.desc':'Built a data warehouse from three public sources (OpenAQ, World Cities, World Bank): modeled a normalized relational schema, then a constellation model (fact tables <span class="mono">FAIT_MESURE</span> / <span class="mono">FAIT_INDICATEUR</span> and 5 dimensions), followed by a performance comparison between the two models on OLAP queries (<span class="mono">ROLLUP</span>, <span class="mono">CUBE</span>) measured with <span class="mono">EXPLAIN ANALYZE</span>. Final visualization built in Qlik Sense.',
+      'proj.air.fig1cap':'Constellation model — 2 fact tables, 5 dimensions',
+      'proj.air.fig2cap':'Logical data model of the source relational schema',
+      'proj.air.more':'Full report, SQL scripts and Qlik file <a href="https://github.com/kishannnpatel/SAE-Visualisation-Qualite-Air" target="_blank" rel="noopener noreferrer">on GitHub</a>',
+      'proj.air.proof':'Code &amp; documents (GitHub)',
+
+      'proj.buvette.title':'Student Association Bar',
+      'proj.buvette.badge':'Group of 3 — with Lokmen &amp; Yoann',
+      'proj.buvette.desc':'Management platform for a student association bar: 4 user roles, a 19-table database, stock and order management, authentication and CSRF protection. PHP architecture in MVC.',
+      'proj.buvette.figcap':'Application demo',
+      'proj.buvette.more':'Full code <a href="https://github.com/DUT-Info-Montreuil/SAE_PHP_WEB_Lokmen-Kishan-Yoann" target="_blank" rel="noopener noreferrer">on GitHub</a>',
+      'proj.buvette.proof':'Source code (GitHub)',
+
+      'proj.solo':'Solo',
+      'proj.p4.title':'Connect Four',
+      'proj.p4.desc':'Java implementation of Connect Four with an opponent driven by a search algorithm, plus optimization work on move computation time.',
+      'proj.p4.proof':'Source code (GitHub)',
+
+      'proj.zelda.title':'Zelda',
+      'proj.zelda.desc':'2D adventure game inspired by Zelda, built with JavaFX: dungeon exploration, combat and item collection.',
+      'proj.zelda.proof':'Source code (GitHub)',
+
+      'proj.bataille.title':'Battleship',
+      'proj.bataille.desc':'Battleship game in Java, playable in the terminal: ship placement, turn-based play, shot handling and win detection.',
+      'proj.bataille.fig1cap':'Game in progress',
+      'proj.bataille.fig2cap':'Shots and grid tracking',
+      'proj.bataille.more':'Full code <a href="https://github.com/kishannnpatel/Bataille-Navale" target="_blank" rel="noopener noreferrer">on GitHub</a>',
+      'proj.bataille.proof':'Source code (GitHub)',
+
+      'photoportfolio.label':'Photo portfolio',
+      'photoportfolio.h2':'Beginner videographer and photographer',
+      'photoportfolio.lede':'Outside of computer science, I do photography and video. A separate gallery collects this work.',
+      'photoportfolio.desc':'Portraits, events and video work — the full gallery is hosted separately.',
+      'photoportfolio.cta':'View the gallery →',
+
+      'resultats.label':'Academic results',
+      'resultats.h2':'My grades, analyzed with Qlik Sense',
+      'resultats.lede':'A dashboard I built myself from my results across the 4 semesters of the BUT — subjects, targeted competencies, grade trends.',
+      'resultats.stat1':'Overall average',
+      'resultats.stat2':'Best grade',
+      'resultats.stat3':'Subjects / projects tracked',
+      'resultats.figcap':'Qlik Sense dashboard — analysis of my progress through the BUT Informatique program',
+      'resultats.quote':'« I can see I’m more comfortable in certain skills like programming or SQL, which I practiced a lot during the year. My results are fairly consistent overall, even though some subjects were more challenging. »',
+      'resultats.cite':'— from my personal analysis, Qlik Sense dashboard, Sept. 2026',
+
+      'parcours.label':'Background',
+      'parcours.h2':'Education &amp; experience',
+      'parcours.formation':'Education',
+      'parcours.f1.h4':'BUT Informatique (CS degree), 2nd year',
+      'parcours.f1.d':'Specialization in Data Administration, Management and Processing.',
+      'parcours.f2.h4':'Baccalauréat Technologique (technology-track diploma)',
+      'parcours.experience':'Experience',
+      'parcours.e1.h4':'Intern — Customer Experience',
+      'parcours.e1.org':'Elementum (freelance / auto-entrepreneur status)',
+      'parcours.e1.d':'Built automations and configured AI agents for a client in the luxury sector.',
+      'parcours.since2026':'Since 2026',
+      'parcours.e2.h4':'Partner — Real-estate holding company (SCI)',
+      'parcours.e2.org':'Family SCI',
+      'parcours.e2.d':'Management and oversight of family real-estate holdings.',
+      'parcours.since2021':'Since 2021',
+      'parcours.e3.h4':'Family business collaborator',
+      'parcours.e3.d':'Stock management, customer relations and administrative follow-up.',
+      'parcours.e4.h4':'Receptionist',
+
+      'contact.label':'Contact',
+      'contact.h2':'Get in touch',
+      'contact.lede':'Looking for a computer science work-study placement (alternance) for 2026 / 2027 — data, backend or application development.',
+      'contact.email':'email',
+      'contact.cvlabel':'Download my resume',
+      'contact.cvfr':'French',
+      'contact.cven':'English',
+
+      'footer.copy':'© <span id="year"></span> Kishan Patel — All rights reserved',
+      'footer.updated':'Last updated: September 2026'
+    };
+
+    var ALT_EN = {
+      'intro.photoalt':'Photo of Kishan Patel',
+      'proj.air.fig1alt':'Constellation diagram of the air-quality data warehouse',
+      'proj.air.fig2alt':'Relational logical data model',
+      'proj.bataille.fig1alt':'Screenshot of the Battleship game running in a terminal',
+      'proj.bataille.fig2alt':'Screenshot of the Battleship game, showing a later turn',
+      'resultats.figalt':'Qlik Sense dashboard showing the analysis of Kishan Patel’s grades in the BUT Informatique program'
+    };
+
+    var TEXT_FR = {};
+    var ALT_FR = {};
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      if (!(k in TEXT_FR)) TEXT_FR[k] = el.innerHTML;
+    });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var k = el.getAttribute('data-i18n-alt');
+      if (!(k in ALT_FR)) ALT_FR[k] = el.getAttribute('alt') || '';
+    });
+
+    var root = document.documentElement;
+    var langBtn = document.getElementById('langToggle');
+
+    var applyLang = function (lang) {
+      var text = lang === 'en' ? TEXT_EN : TEXT_FR;
+      var alts = lang === 'en' ? ALT_EN : ALT_FR;
+      document.querySelectorAll('[data-i18n]').forEach(function (el) {
+        var k = el.getAttribute('data-i18n');
+        if (text[k] != null) el.innerHTML = text[k];
+      });
+      document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+        var k = el.getAttribute('data-i18n-alt');
+        if (alts[k] != null) el.setAttribute('alt', alts[k]);
+      });
+      root.setAttribute('lang', lang);
+      if (langBtn) langBtn.textContent = lang === 'en' ? 'FR' : 'EN';
+      if (window.__updateThemeLabel) window.__updateThemeLabel();
+    };
+
+    var stored = null;
+    try { stored = localStorage.getItem('lang'); } catch (e) {}
+    applyLang(stored === 'en' ? 'en' : 'fr');
+
+    if (langBtn) {
+      langBtn.addEventListener('click', function () {
+        var next = root.getAttribute('lang') === 'en' ? 'fr' : 'en';
+        applyLang(next);
+        try { localStorage.setItem('lang', next); } catch (e) {}
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>

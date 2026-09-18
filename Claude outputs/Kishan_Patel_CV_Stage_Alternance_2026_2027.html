@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kishan Patel – CV Stage / Alternance 2026-2027</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #14181f;
+    --ink-soft: #454b5c;
+    --muted: #767c8c;
+    --line: #d9dce3;
+    --accent: #0d4f4a;
+    --accent-soft: #e7f0ee;
+    --bg: #ffffff;
+    --sans: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    --mono: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+
+  html { background: var(--bg); }
+
+  body {
+    font-family: var(--sans);
+    font-size: 9.3pt;
+    line-height: 1.5;
+    color: var(--ink);
+    background: var(--bg);
+    max-width: 210mm;
+    margin: 0 auto;
+    padding: 13mm 16mm;
+  }
+
+  /* ── EN-TÊTE ── */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 9px;
+  }
+
+  header .id-block h1 {
+    font-size: 21pt;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    line-height: 1.05;
+  }
+
+  header .role {
+    font-size: 9.5pt;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 4px;
+  }
+
+  header .contact-block {
+    text-align: right;
+    font-size: 8.3pt;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  header .contact-block a { color: var(--ink-soft); text-decoration: none; }
+  header .contact-block .row + .row { margin-top: 0; }
+
+  .objective-line {
+    margin-top: 8px;
+    font-size: 8.8pt;
+    color: var(--ink-soft);
+  }
+  .objective-line strong { color: var(--ink); font-weight: 600; }
+
+  /* ── SECTIONS ── */
+  section { margin-top: 12px; }
+
+  h2 {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 7.6pt;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-bottom: 4px;
+    border-bottom: 2px solid var(--accent);
+    margin-bottom: 8px;
+  }
+
+  /* ── PROFIL ── */
+  .profil p { font-size: 9pt; line-height: 1.55; color: var(--ink-soft); max-width: 100%; }
+
+  /* ── COMPÉTENCES ── */
+  .skills { display: flex; flex-direction: column; gap: 6px; }
+  .skill-cat {
+    font-family: var(--mono);
+    font-size: 7.3pt;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+  .skill-values {
+    font-size: 8.8pt;
+    color: var(--ink-soft);
+    margin-top: 1px;
+  }
+  .skill-row { margin-bottom: 2px; }
+
+  /* ── ENTRÉES (expériences / projets / formation) ── */
+  .entry { margin-bottom: 8px; }
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 2px;
+  }
+
+  .entry-left { display: flex; flex-wrap: wrap; align-items: baseline; gap: 5px; min-width: 0; }
+
+  .entry-title { font-weight: 700; font-size: 9pt; color: var(--ink); }
+  .entry-org { font-size: 8.6pt; color: var(--muted); }
+  .entry-org::before { content: "— "; }
+
+  .entry-date {
+    font-family: var(--mono);
+    font-size: 7.6pt;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  ul { list-style: none; }
+
+  ul li {
+    position: relative;
+    padding-left: 11px;
+    font-size: 8.7pt;
+    line-height: 1.48;
+    margin-bottom: 2px;
+    color: var(--ink-soft);
+  }
+
+  ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+  }
+
+  ul li.stack {
+    font-family: var(--mono);
+    font-size: 7.6pt;
+    color: var(--muted);
+  }
+  ul li.stack::before { background: var(--muted); }
+  ul li.stack b { color: var(--ink-soft); font-weight: 600; }
+
+  /* ── LANGUES & SOFT SKILLS ── */
+  .last-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .last-grid .skill-cat { display: block; }
+  .last-grid .skill-values { display: block; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { padding: 11mm 14mm; }
+    @page { margin: 0; size: A4; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="id-block">
+    <h1>Kishan Patel</h1>
+    <p class="role">Étudiant BUT Informatique · Spécialisation Données</p>
+  </div>
+  <div class="contact-block">
+    <div class="row">kishan.patel21@outlook.fr &nbsp;·&nbsp; +33 (0)7 61 90 02 91</div>
+    <div class="row">Drancy (93) &nbsp;·&nbsp; Permis B</div>
+    <div class="row"><a href="https://kishanpatel.fr/">kishanpatel.fr</a> &nbsp;·&nbsp; <a href="https://github.com/kishannnpatel">github.com/kishannnpatel</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/kishan-patel-260275263/">linkedin.com/in/kishan-patel</a></div>
+  </div>
+</header>
+
+<p class="objective-line"><strong>Recherche un stage ou une alternance</strong> — data, backend ou développement applicatif — pour 2026 / 2027.</p>
+
+<!-- PROFIL -->
+<section class="profil">
+  <h2>Profil</h2>
+  <p>Étudiant en 2ᵉ année de BUT Informatique (spécialisation administration, gestion et exploitation des données) à l'IUT de Montreuil – Université Paris 8. Compétences en développement backend, bases de données relationnelles et NoSQL, et architecture logicielle, mises en pratique sur plusieurs projets full stack.</p>
+</section>
+
+<!-- COMPÉTENCES -->
+<section>
+  <h2>Compétences techniques</h2>
+  <div class="skills">
+    <div class="skill-row">
+      <div class="skill-cat">Langages</div>
+      <div class="skill-values">Python, Java, JavaScript, PHP, C, SQL</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-cat">Bases de données</div>
+      <div class="skill-values">PostgreSQL, MySQL, MongoDB — modélisation, requêtage, administration, optimisation</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-cat">Développement web</div>
+      <div class="skill-values">Flask, PHP (MVC), API REST, HTML/CSS, sécurité (CSRF, sessions)</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-cat">Data &amp; BI</div>
+      <div class="skill-values">Data Warehouse, schéma étoile/flocon, ETL, nettoyage de données, Qlik Sense</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-cat">IA &amp; Cloud</div>
+      <div class="skill-values">GenIA, Agentic AI, Prompt Engineering, Snowflake, API REST</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-cat">Méthodologie &amp; outils</div>
+      <div class="skill-values">Architecture MVC, design patterns (Factory, Singleton, Strategy), MCD/MLD, tests unitaires, Git, Linux</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPÉRIENCE -->
+<section>
+  <h2>Expérience professionnelle</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-left">
+        <span class="entry-title">Stagiaire — Customer Experience</span>
+        <span class="entry-org">Elementum (via auto-entrepreneur)</span>
+      </div>
+      <span class="entry-date">04/2026 – 06/2026</span>
+    </div>
+    <ul>
+      <li>Création d'automatisations (variables, fonctions, conditions, boucles, API REST) dans un environnement GenIA / Agentic AI.</li>
+      <li>Paramétré des agents IA et configuré des outils pour répondre à des cas d'usage métier.</li>
+      <li>Mis en place une méthode de test non conventionnelle pour les agents IA.</li>
+      <li class="stack"><b>Stack :</b> GenIA, Agentic AI, Prompt Engineering, Snowflake, API REST</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-left">
+        <span class="entry-title">Assistant du Gérant — Boutique &amp; Restaurant</span>
+        <span class="entry-org">J'adore Paris / NaanShaan</span>
+      </div>
+      <span class="entry-date">Depuis 2021</span>
+    </div>
+    <ul>
+      <li>Supervisé les opérations quotidiennes : gestion des stocks, coordination d'équipe, relation client.</li>
+      <li>Géré le suivi administratif et les performances des deux établissements.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-left">
+        <span class="entry-title">Réceptionniste</span>
+        <span class="entry-org">Fasthotel Dijon</span>
+      </div>
+      <span class="entry-date">06/2022 – 07/2022</span>
+    </div>
+    <ul>
+      <li>Accueilli les clients, géré les réservations et travaillé en autonomie en période d'affluence.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section>
+  <h2>Projets académiques</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-left">
+        <span class="entry-title">Buvette Associative — Application web full stack</span>
+        <span class="entry-org">IUT Montreuil</span>
+      </div>
+      <span class="entry-date">2024 – 2025</span>
+    </div>
+    <ul>
+      <li>Conçu et déployé une application PHP MVC avec une base de données relationnelle de 19 tables.</li>
+      <li>Implémenté 4 rôles utilisateurs (client, barman, gestionnaire, super admin) avec gestion des droits d'accès.</li>
+      <li>Sécurisé l'application : protection CSRF, gestion des sessions et codes de paiement à 6 caractères.</li>
+      <li class="stack"><b>Stack :</b> PHP (MVC), MySQL, HTML, CSS, SQL, PHPMyAdmin</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-left">
+        <span class="entry-title">Projet Data — Qualité de l'air (SAE S4.C.01)</span>
+        <span class="entry-org">IUT Montreuil</span>
+      </div>
+      <span class="entry-date">2025 – 2026</span>
+    </div>
+    <ul>
+      <li>Conçu une BDD relationnelle puis un Data Warehouse (schéma en étoile/flocon) à partir de sources publiques (OpenAQ, données urbaines, indicateurs économiques).</li>
+      <li>Nettoyé et préparé les données : valeurs manquantes, données aberrantes, normalisation, optimisation des requêtes SQL.</li>
+      <li>Analysé les facteurs de pollution et créé des visualisations interactives avec Qlik Sense (tableaux de bord BI).</li>
+      <li class="stack"><b>Stack :</b> SQL, PostgreSQL, Data Warehouse, ETL, Qlik Sense</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-left">
+        <span class="entry-title">Application QCM — Service de questionnaires</span>
+        <span class="entry-org">IUT Montreuil</span>
+      </div>
+      <span class="entry-date">2025 – 2026</span>
+    </div>
+    <ul>
+      <li>Développé un service de parsing CSV (QuestionnaireServicesImpl) pour charger et valider des questionnaires QCM.</li>
+      <li>Écrit des tests unitaires JUnit 5 couvrant les cas nominaux et les cas d'erreur ; gestion des exceptions métier.</li>
+      <li class="stack"><b>Stack :</b> Java, Maven, JUnit 5, architecture en couches, CSV, POO</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-left">
+        <span class="entry-title">Jeux Java — Zelda-Like, Puissance 4, Bataille Navale</span>
+        <span class="entry-org">IUT Montreuil</span>
+      </div>
+      <span class="entry-date">2023 – 2024</span>
+    </div>
+    <ul>
+      <li>Développé plusieurs applications JavaFX avec des algorithmes d'intelligence artificielle.</li>
+      <li>Appliqué les design patterns MVC, Factory et Strategy lors du refactoring du projet Zelda-Like.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- FORMATION -->
+<section>
+  <h2>Formation</h2>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-left">
+        <span class="entry-title">BUT Informatique — 2ᵉ année (en cours)</span>
+        <span class="entry-org">IUT de Montreuil – Université Paris 8</span>
+      </div>
+      <span class="entry-date">2023 – 2027</span>
+    </div>
+    <ul>
+      <li>Spécialisation Administration, Gestion et Exploitation des Données — BDD, développement logiciel, réseaux, systèmes, mathématiques.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <div class="entry-left">
+        <span class="entry-title">Baccalauréat Technologique</span>
+        <span class="entry-org">Lycée Marcel Cachin, Saint-Ouen</span>
+      </div>
+      <span class="entry-date">2020 – 2023</span>
+    </div>
+  </div>
+</section>
+
+<!-- LANGUES & SOFT SKILLS -->
+<section>
+  <h2>Langues &amp; savoir-être</h2>
+  <div class="last-grid">
+    <div class="skill-row">
+      <div class="skill-cat">Langues</div>
+      <div class="skill-values">Français (courant), Anglais (avancé), Gujarati (avancé), Hindi (avancé)</div>
+    </div>
+    <div class="skill-row">
+      <div class="skill-cat">Savoir-être</div>
+      <div class="skill-values">Autonomie, rigueur, travail en équipe, résolution de problèmes</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
