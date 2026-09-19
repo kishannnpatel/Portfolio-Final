@@ -1,0 +1,43 @@
+<!-- ===== Widget avis visiteurs — à coller juste avant </body> ===== -->
+<div id="fb-widget">
+  <div id="fbHeader" class="fb-header">
+    <span class="fb-title">Votre avis</span>
+    <div class="fb-controls">
+      <button type="button" id="fbMinBtn" class="fb-icon-btn" title="Réduire" aria-label="Réduire">–</button>
+      <button type="button" id="fbCloseBtn" class="fb-icon-btn" title="Fermer" aria-label="Fermer">×</button>
+    </div>
+  </div>
+
+  <div id="fbBody" class="fb-body">
+    <div class="fb-stat">
+      <span class="fb-stat-label">Visiteurs</span>
+      <span id="fbVisits" class="fb-stat-value">—</span>
+    </div>
+
+    <div class="fb-reactions">
+      <button type="button" id="fbLikeBtn" class="fb-react-btn">
+        <span class="fb-react-icon">👍</span>
+        <span class="fb-react-label">J'aime</span>
+        <span id="fbLikes" class="fb-react-count">0</span>
+      </button>
+      <button type="button" id="fbDislikeBtn" class="fb-react-btn">
+        <span class="fb-react-icon">👎</span>
+        <span class="fb-react-label">J'aime pas</span>
+        <span id="fbDislikes" class="fb-react-count">0</span>
+      </button>
+    </div>
+
+    <div id="fbCommentBox" class="fb-comment-box" hidden>
+      <textarea id="fbCommentText" class="fb-textarea" placeholder="Dites-moi ce que je dois changer pour que le pf vous plaise" required></textarea>
+      <p id="fbCommentError" class="fb-comment-error" hidden>Un commentaire est nécessaire.</p>
+      <div class="fb-comment-actions">
+        <button type="button" id="fbCancelBtn" class="fb-btn-secondary">Annuler</button>
+        <button type="button" id="fbSendBtn" class="fb-btn-primary">Envoyer</button>
+      </div>
+    </div>
+
+    <p id="fbThanks" class="fb-thanks" hidden>Merci pour votre retour !</p>
+  </div>
+</div>
+
+<button type="button" id="fbReopenBtn" class="fb-reopen-btn" hidden aria-label="Ouvrir le widget avis">💬</button>

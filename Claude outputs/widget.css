@@ -1,0 +1,235 @@
+/* ---------- widget avis visiteurs ---------- */
+
+#fb-widget{
+  position:fixed;
+  top:1.25rem;
+  right:1.25rem;
+  z-index:90;
+  width:18.5rem;
+  max-width:calc(100vw - 2rem);
+  background:var(--bg);
+  border:1px solid var(--line);
+  box-shadow:0 .5rem 1.5rem rgba(0,0,0,.14);
+  font-family:'Source Serif 4',serif;
+  user-select:none;
+}
+html.dark #fb-widget{
+  box-shadow:0 .5rem 1.5rem rgba(0,0,0,.45);
+}
+
+#fb-widget.fb-dragging{
+  transition:none;
+  cursor:grabbing;
+}
+
+.fb-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:.75rem;
+  padding:.65rem .85rem;
+  border-bottom:1px solid var(--line);
+  cursor:grab;
+}
+#fb-widget.fb-minimized .fb-header{
+  border-bottom:none;
+}
+
+.fb-title{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.03em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+
+.fb-controls{
+  display:flex;
+  gap:.35rem;
+}
+
+.fb-icon-btn{
+  width:1.5rem;
+  height:1.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--line);
+  background:var(--bg);
+  color:var(--ink-soft);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.85rem;
+  line-height:1;
+  cursor:pointer;
+  padding:0;
+  transition:border-color .2s ease,color .2s ease;
+}
+.fb-icon-btn:hover{
+  border-color:var(--ink-faint);
+  color:var(--ink);
+}
+
+.fb-body{
+  padding:.9rem .85rem 1rem;
+  display:flex;
+  flex-direction:column;
+  gap:.8rem;
+}
+#fb-widget.fb-minimized .fb-body{
+  display:none;
+}
+
+.fb-stat{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  font-size:.85rem;
+}
+.fb-stat-label{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.7rem;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+}
+.fb-stat-value{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.95rem;
+  color:var(--ink);
+}
+
+.fb-reactions{
+  display:flex;
+  gap:.6rem;
+}
+
+.fb-react-btn{
+  flex:1 1 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:.4rem;
+  padding:.5rem .5rem;
+  border:1px solid var(--line);
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Source Serif 4',serif;
+  font-size:.82rem;
+  cursor:pointer;
+  transition:border-color .2s ease,background-color .2s ease;
+}
+.fb-react-btn:hover:not(:disabled){
+  border-color:var(--ink-faint);
+}
+.fb-react-btn:disabled{
+  cursor:default;
+  opacity:.55;
+}
+.fb-react-btn.fb-active{
+  border-color:var(--accent);
+  background:var(--accent-soft);
+}
+.fb-react-icon{
+  font-size:.95rem;
+  line-height:1;
+}
+.fb-react-count{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.78rem;
+  color:var(--ink-soft);
+}
+
+.fb-comment-box{
+  display:flex;
+  flex-direction:column;
+  gap:.5rem;
+}
+.fb-textarea{
+  width:100%;
+  min-height:5rem;
+  resize:vertical;
+  padding:.55rem .6rem;
+  border:1px solid var(--line);
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Source Serif 4',serif;
+  font-size:.85rem;
+  line-height:1.4;
+}
+.fb-textarea:focus{
+  outline:none;
+  border-color:var(--ink-faint);
+}
+.fb-comment-error{
+  margin:0;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  color:#b3413c;
+}
+
+.fb-comment-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:.5rem;
+}
+.fb-btn-secondary,
+.fb-btn-primary{
+  padding:.4rem .85rem;
+  border:1px solid var(--line);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.72rem;
+  letter-spacing:.02em;
+  text-transform:uppercase;
+  cursor:pointer;
+  background:var(--bg);
+  color:var(--ink);
+  transition:border-color .2s ease,background-color .2s ease,color .2s ease;
+}
+.fb-btn-secondary:hover{
+  border-color:var(--ink-faint);
+}
+.fb-btn-primary{
+  border-color:var(--ink);
+  background:var(--ink);
+  color:var(--bg);
+}
+.fb-btn-primary:hover{
+  opacity:.85;
+}
+
+.fb-thanks{
+  margin:0;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:.78rem;
+  color:var(--good,#2f8f5b);
+}
+
+.fb-reopen-btn{
+  position:fixed;
+  top:1.25rem;
+  right:1.25rem;
+  z-index:90;
+  width:2.75rem;
+  height:2.75rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid var(--line);
+  background:var(--bg);
+  box-shadow:0 .4rem 1rem rgba(0,0,0,.14);
+  font-size:1.2rem;
+  cursor:pointer;
+}
+
+@media (max-width:520px){
+  #fb-widget{
+    right:.75rem;
+    left:.75rem;
+    top:.75rem;
+    width:auto;
+  }
+  .fb-reopen-btn{
+    right:.75rem;
+    top:.75rem;
+  }
+}

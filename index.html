@@ -12,6 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="widget.css">
     <script>
       (function () {
         try {
@@ -48,8 +49,8 @@
       <div class="intro-flex">
         <div class="intro-text">
           <h1 data-i18n="intro.h1">Étudiant en BUT Informatique, spécialisation données</h1>
-          <p class="role" data-i18n="intro.role">2ᵉ année · IUT de Montreuil, Université Paris 8 · Drancy (93)</p>
-          <p data-i18n="intro.p">Je suis étudiant en 2ᵉ année de BUT Informatique, parcours Administration, Gestion et Exploitation des Données. Cette page rassemble mes projets avec, pour chacun, le code source ou les documents qui permettent de vérifier ce que j'ai réellement fait — plutôt qu'une liste de compétences à prendre pour argent comptant.</p>
+          <p class="role" data-i18n="intro.role">3ᵉ année · IUT de Montreuil, Université Paris 8 · Drancy (93)</p>
+          <p data-i18n="intro.p">Je suis étudiant en 3ᵉ année de BUT Informatique, parcours Administration, Gestion et Exploitation des Données. Cette page rassemble mes projets avec, pour chacun, le code source ou les documents qui permettent de vérifier ce que j'ai réellement fait — plutôt qu'une liste de compétences à prendre pour argent comptant.</p>
           <p class="meta-line" data-i18n="intro.meta">Recherche une alternance pour 2026 / 2027 — kishan.patel21@outlook.fr</p>
           <div class="btn-row">
             <a class="btn btn-primary" href="#contact" data-i18n="hero.contact">Me contacter</a>
@@ -288,7 +289,7 @@
         <div class="track-item">
           <div class="when">2023 — 2027</div>
           <div>
-            <h4 data-i18n="parcours.f1.h4">BUT Informatique, 2ᵉ année</h4>
+            <h4 data-i18n="parcours.f1.h4">BUT Informatique, 3ᵉ année</h4>
             <div class="org">IUT de Montreuil · Université Paris 8</div>
             <div class="d" data-i18n="parcours.f1.d">Spécialisation Administration, Gestion et Exploitation des Données.</div>
           </div>
@@ -427,8 +428,8 @@
       'nav.contact':'Contact',
 
       'intro.h1':'BUT Computer Science student, data track',
-      'intro.role':'2nd year · IUT de Montreuil, Université Paris 8 · Drancy, France',
-      'intro.p':'I’m a second-year BUT Informatique student, majoring in Data Administration, Management and Processing. This page collects my projects, each with the source code or documents needed to verify what I actually did — rather than a list of skills to take at face value.',
+      'intro.role':'3rd year · IUT de Montreuil, Université Paris 8 · Drancy, France',
+      'intro.p':'I’m a third-year BUT Informatique student, majoring in Data Administration, Management and Processing. This page collects my projects, each with the source code or documents needed to verify what I actually did — rather than a list of skills to take at face value.',
       'intro.meta':'Looking for a work-study placement (alternance) for 2026 / 2027 — kishan.patel21@outlook.fr',
       'intro.card1.label':'Specialization',
       'intro.card1.value':'Data administration, management and processing',
@@ -523,7 +524,7 @@
       'parcours.label':'Background',
       'parcours.h2':'Education &amp; experience',
       'parcours.formation':'Education',
-      'parcours.f1.h4':'BUT Informatique (CS degree), 2nd year',
+      'parcours.f1.h4':'BUT Informatique (CS degree), 3rd year',
       'parcours.f1.d':'Specialization in Data Administration, Management and Processing.',
       'parcours.f2.h4':'Baccalauréat Technologique (technology-track diploma)',
       'parcours.experience':'Experience',
@@ -606,5 +607,50 @@
   })();
 </script>
 
+
+<!-- ===== Widget avis visiteurs — a coller juste avant </body> ===== -->
+<div id="fb-widget">
+  <div id="fbHeader" class="fb-header">
+    <span class="fb-title">Votre avis</span>
+    <div class="fb-controls">
+      <button type="button" id="fbMinBtn" class="fb-icon-btn" title="Reduire" aria-label="Reduire">–</button>
+      <button type="button" id="fbCloseBtn" class="fb-icon-btn" title="Fermer" aria-label="Fermer">×</button>
+    </div>
+  </div>
+
+  <div id="fbBody" class="fb-body">
+    <div class="fb-stat">
+      <span class="fb-stat-label">Visiteurs</span>
+      <span id="fbVisits" class="fb-stat-value">—</span>
+    </div>
+
+    <div class="fb-reactions">
+      <button type="button" id="fbLikeBtn" class="fb-react-btn">
+        <span class="fb-react-icon">👍</span>
+        <span class="fb-react-label">J'aime</span>
+        <span id="fbLikes" class="fb-react-count">0</span>
+      </button>
+      <button type="button" id="fbDislikeBtn" class="fb-react-btn">
+        <span class="fb-react-icon">👎</span>
+        <span class="fb-react-label">J'aime pas</span>
+        <span id="fbDislikes" class="fb-react-count">0</span>
+      </button>
+    </div>
+
+    <div id="fbCommentBox" class="fb-comment-box" hidden>
+      <textarea id="fbCommentText" class="fb-textarea" placeholder="Dites-moi ce que je dois changer pour que le pf vous plaise" required></textarea>
+      <p id="fbCommentError" class="fb-comment-error" hidden>Un commentaire est necessaire.</p>
+      <div class="fb-comment-actions">
+        <button type="button" id="fbCancelBtn" class="fb-btn-secondary">Annuler</button>
+        <button type="button" id="fbSendBtn" class="fb-btn-primary">Envoyer</button>
+      </div>
+    </div>
+
+    <p id="fbThanks" class="fb-thanks" hidden>Merci ! Votre appli mail va s'ouvrir pour envoyer votre message.</p>
+  </div>
+</div>
+
+<button type="button" id="fbReopenBtn" class="fb-reopen-btn" hidden aria-label="Ouvrir le widget avis">💬</button>
+<script src="widget.js" defer></script>
 </body>
 </html>
