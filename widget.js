@@ -1,10 +1,8 @@
-/* ---------- widget avis visiteurs (sans compte à créer) ---------- */
-/* Compteurs : API publique Abacus (v2.jasoncameron.dev), aucune inscription requise. */
-/* Commentaire "j'aime pas" : ouvre l'appli mail du visiteur, adressé à toi. */
+/* ---------- widget compteur de visites (sans compte à créer) ---------- */
+/* API publique Abacus (v2.jasoncameron.dev), aucune inscription requise. */
 var FB_CONFIG = {
   COUNTER_BASE: 'https://v2.jasoncameron.dev',
-  COUNTER_NAMESPACE: 'kishanpatel-fr-portfolio', // identifiant unique pour éviter les collisions avec d'autres sites
-  MAILTO: 'kishan21122005patel@gmail.com'
+  COUNTER_NAMESPACE: 'kishanpatel-fr-portfolio' // identifiant unique pour éviter les collisions avec d'autres sites
 };
 
 (function () {
@@ -16,16 +14,6 @@ var FB_CONFIG = {
   var closeBtn = document.getElementById('fbCloseBtn');
   var reopenBtn = document.getElementById('fbReopenBtn');
   var visitsEl = document.getElementById('fbVisits');
-  var likesEl = document.getElementById('fbLikes');
-  var dislikesEl = document.getElementById('fbDislikes');
-  var likeBtn = document.getElementById('fbLikeBtn');
-  var dislikeBtn = document.getElementById('fbDislikeBtn');
-  var commentBox = document.getElementById('fbCommentBox');
-  var commentText = document.getElementById('fbCommentText');
-  var commentError = document.getElementById('fbCommentError');
-  var cancelBtn = document.getElementById('fbCancelBtn');
-  var sendBtn = document.getElementById('fbSendBtn');
-  var thanksEl = document.getElementById('fbThanks');
 
   function lsGet(key) {
     try { return localStorage.getItem(key); } catch (e) { return null; }
@@ -58,91 +46,16 @@ var FB_CONFIG = {
       .catch(function () { return null; });
   }
 
-  function fetchInitialStats() {
-    getCount('likes').then(function (v) { if (v !== null) likesEl.textContent = v; });
-    getCount('dislikes').then(function (v) { if (v !== null) dislikesEl.textContent = v; });
+  function registerVisit() {
     if (ssGet('fb_visited')) {
       getCount('visits').then(function (v) { if (v !== null) visitsEl.textContent = v; });
+      return;
     }
-  }
-
-  function registerVisit() {
-    if (ssGet('fb_visited')) return;
     ssSet('fb_visited', '1');
     hitCount('visits').then(function (v) {
       if (v !== null) visitsEl.textContent = v;
     });
   }
-
-  /* ---------- like / dislike ---------- */
-
-  var reaction = lsGet('fb_reaction'); // 'like' | 'dislike' | null
-
-  function applyReactionUI() {
-    if (reaction === 'like') {
-      likeBtn.classList.add('fb-active');
-      likeBtn.disabled = true;
-      dislikeBtn.disabled = true;
-    } else if (reaction === 'dislike') {
-      dislikeBtn.classList.add('fb-active');
-      likeBtn.disabled = true;
-      dislikeBtn.disabled = true;
-    }
-  }
-  applyReactionUI();
-
-  likeBtn.addEventListener('click', function () {
-    if (reaction) return;
-    likeBtn.disabled = true;
-    dislikeBtn.disabled = true;
-    hitCount('likes').then(function (v) {
-      if (v !== null) likesEl.textContent = v;
-      reaction = 'like';
-      lsSet('fb_reaction', 'like');
-      likeBtn.classList.add('fb-active');
-    });
-  });
-
-  dislikeBtn.addEventListener('click', function () {
-    if (reaction) return;
-    commentBox.hidden = false;
-    commentText.focus();
-  });
-
-  cancelBtn.addEventListener('click', function () {
-    commentBox.hidden = true;
-    commentText.value = '';
-    commentError.hidden = true;
-  });
-
-  sendBtn.addEventListener('click', function () {
-    var text = commentText.value.trim();
-    if (!text) {
-      commentError.hidden = false;
-      return;
-    }
-    commentError.hidden = true;
-
-    var subject = 'Avis portfolio — ' + location.hostname;
-    var body = text + '\n\n---\nPage : ' + location.href + '\nDate : ' + new Date().toLocaleString('fr-FR');
-    var mailtoLink = 'mailto:' + FB_CONFIG.MAILTO +
-      '?subject=' + encodeURIComponent(subject) +
-      '&body=' + encodeURIComponent(body);
-
-    hitCount('dislikes').then(function (v) {
-      if (v !== null) dislikesEl.textContent = v;
-    });
-
-    reaction = 'dislike';
-    lsSet('fb_reaction', 'dislike');
-    dislikeBtn.classList.add('fb-active');
-    likeBtn.disabled = true;
-    dislikeBtn.disabled = true;
-    commentBox.hidden = true;
-    thanksEl.hidden = false;
-
-    window.location.href = mailtoLink;
-  });
 
   /* ---------- minimize / close / reopen ---------- */
 
@@ -217,6 +130,5 @@ var FB_CONFIG = {
 
   /* ---------- init ---------- */
 
-  fetchInitialStats();
   registerVisit();
 })();
