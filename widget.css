@@ -107,9 +107,19 @@ html.dark #fb-widget{
   justify-content:center;
   border:1px solid var(--line);
   background:var(--bg);
+  color:var(--ink-soft);
   box-shadow:0 .4rem 1rem rgba(0,0,0,.14);
-  font-size:1.2rem;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:1.3rem;
+  line-height:1;
   cursor:pointer;
+}
+.fb-reopen-btn:hover{
+  border-color:var(--ink-faint);
+  color:var(--ink);
+}
+.fb-reopen-btn[hidden]{
+  display:none;
 }
 
 @media (max-width:520px){
