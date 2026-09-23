@@ -22,13 +22,6 @@ var FB_CONFIG = {
   function lsSet(key, val) {
     try { localStorage.setItem(key, val); } catch (e) {}
   }
-  function ssGet(key) {
-    try { return sessionStorage.getItem(key); } catch (e) { return null; }
-  }
-  function ssSet(key, val) {
-    try { sessionStorage.setItem(key, val); } catch (e) {}
-  }
-
   /* ---------- compteur (Gist GitHub) ---------- */
 
   function apiHeaders() {
@@ -67,11 +60,6 @@ var FB_CONFIG = {
   }
 
   function registerVisit() {
-    if (ssGet('fb_visited')) {
-      readGist().then(function (v) { if (v !== null) visitsEl.textContent = v; });
-      return;
-    }
-    ssSet('fb_visited', '1');
     readGist().then(function (current) {
       if (current === null) return;
       var next = current + 1;
