@@ -1,9 +1,7 @@
-/* ---------- widget compteur de visites (via ton propre GitHub, aucun service tiers) ---------- */
-/* Remplis ces 2 valeurs une fois le Gist et le token créés (voir les instructions envoyées). */
+/* ---------- widget compteur de visites (API publique, sans compte ni secret) ---------- */
 var FB_CONFIG = {
-  GIST_ID: 'ad6173cbabdf69fda4c06abd38d1dee6',
-  GITHUB_TOKEN: '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',
-  GIST_FILENAME: 'gistfile1.txt'
+  COUNTER_BASE: 'https://abacus.jasoncameron.dev',
+  COUNTER_NAMESPACE: 'kishanpatel-fr-portfolio' // identifiant unique pour éviter les collisions avec d'autres sites
 };
 
 (function () {
@@ -22,49 +20,21 @@ var FB_CONFIG = {
   function lsSet(key, val) {
     try { localStorage.setItem(key, val); } catch (e) {}
   }
-  /* ---------- compteur (Gist GitHub) ---------- */
 
-  function apiHeaders() {
-    return {
-      'Authorization': 'token ' + FB_CONFIG.GITHUB_TOKEN,
-      'Accept': 'application/vnd.github+json',
-      'Content-Type': 'application/json'
-    };
+  function ns() {
+    return encodeURIComponent(FB_CONFIG.COUNTER_NAMESPACE);
   }
 
-  function readGist() {
-    return fetch('https://api.github.com/gists/' + FB_CONFIG.GIST_ID, {
-      headers: apiHeaders()
-    })
+  function hitCount(key) {
+    return fetch(FB_CONFIG.COUNTER_BASE + '/hit/' + ns() + '/' + key)
       .then(function (r) { return r.ok ? r.json() : null; })
-      .then(function (data) {
-        if (!data || !data.files || !data.files[FB_CONFIG.GIST_FILENAME]) return 0;
-        try {
-          var parsed = JSON.parse(data.files[FB_CONFIG.GIST_FILENAME].content);
-          return typeof parsed.visits === 'number' ? parsed.visits : 0;
-        } catch (e) {
-          return 0;
-        }
-      })
+      .then(function (data) { return data && typeof data.value === 'number' ? data.value : null; })
       .catch(function () { return null; });
   }
 
-  function writeGist(value) {
-    var body = { files: {} };
-    body.files[FB_CONFIG.GIST_FILENAME] = { content: JSON.stringify({ visits: value }) };
-    return fetch('https://api.github.com/gists/' + FB_CONFIG.GIST_ID, {
-      method: 'PATCH',
-      headers: apiHeaders(),
-      body: JSON.stringify(body)
-    }).then(function (r) { return r.ok; }).catch(function () { return false; });
-  }
-
   function registerVisit() {
-    readGist().then(function (current) {
-      if (current === null) return;
-      var next = current + 1;
-      visitsEl.textContent = next;
-      writeGist(next);
+    hitCount('visits').then(function (v) {
+      if (v !== null) visitsEl.textContent = v;
     });
   }
 
