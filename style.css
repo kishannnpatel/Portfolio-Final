@@ -498,6 +498,9 @@
   }
 
   /* ---------- parcours ---------- */
+  #parcours .wrap{
+    padding-left:calc(clamp(1.25rem,3.5vw,2.75rem) + 3.5rem);
+  }
   .track{display:flex;flex-direction:column;gap:1.7rem;}
   .track-item{
     display:grid;
@@ -522,6 +525,9 @@
     margin:2rem 0 1rem;
   }
   .track-col-label:first-child{margin-top:0;}
+  @media (max-width:640px){
+    #parcours .wrap{padding-left:clamp(1.25rem,3.5vw,2.75rem);}
+  }
 
   /* ---------- contact / footer ---------- */
   #contact{padding-block:clamp(3.75rem,7.5vw,5.5rem);}
