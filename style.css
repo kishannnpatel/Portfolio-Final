@@ -55,6 +55,8 @@
     padding-inline:clamp(1.25rem,3.5vw,2.75rem);
   }
 
+  h1,h2,h3,h4{line-height:1.2;}
+
   .mono{
     font-family:'IBM Plex Mono',ui-monospace,monospace;
   }
