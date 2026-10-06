@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Theme toggle — matches the main portfolio's #themeToggle behavior
+  // Theme toggle - matches the main portfolio's #themeToggle behavior
   const root = document.documentElement;
   const themeBtn = document.getElementById('themeToggle');
   if (themeBtn) {
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Back to top — matches the main portfolio's #backToTop behavior
+  // Back to top - matches the main portfolio's #backToTop behavior
   const backToTop = document.getElementById('backToTop');
   if (backToTop) {
     const toggleVisible = function () {

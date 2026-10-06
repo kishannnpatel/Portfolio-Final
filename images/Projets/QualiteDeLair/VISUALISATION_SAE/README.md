@@ -1,8 +1,8 @@
-# SAE S4.C.01 — Développement avec une base de données et visualisation
+# SAE S4.C.01 - Développement avec une base de données et visualisation
 
 **Qualité de l'air : de la donnée brute à l'analyse décisionnelle**
 
-BUT Informatique — IUT de Montreuil, Université Paris 8 — 2ᵉ année, 2025-2026
+BUT Informatique - IUT de Montreuil, Université Paris 8 - 2ᵉ année, 2025-2026
 
 **Auteurs :** Kishan Patel, Alpay Soran, Edvin Thileepan, Abdelraouf Boulfrad
 
@@ -22,7 +22,7 @@ Structurer, nettoyer et analyser des données de qualité de l'air provenant de 
 
 **Modèle relationnel** (normalisé, orienté OLTP) : `PAYS`, `VILLE`, `STATION`, `CAPTEUR`, `POLLUANT`, `INDICATEUR`, `VALEUR_INDICATEUR`.
 
-**Modèle multidimensionnel en constellation** (dénormalisé, orienté OLAP) : deux tables de faits — `FAIT_MESURE` et `FAIT_INDICATEUR` — reliées à cinq dimensions : `DIM_TEMPS`, `DIM_LOCALISATION`, `DIM_POLLUANT`, `DIM_INDICATEUR`, `DIM_PAYS_ECONOMIE`.
+**Modèle multidimensionnel en constellation** (dénormalisé, orienté OLAP) : deux tables de faits - `FAIT_MESURE` et `FAIT_INDICATEUR` - reliées à cinq dimensions : `DIM_TEMPS`, `DIM_LOCALISATION`, `DIM_POLLUANT`, `DIM_INDICATEUR`, `DIM_PAYS_ECONOMIE`.
 
 Schémas disponibles dans le dépôt : `MLD_SAE.pdf` (modèle relationnel) et `Modele_constellation.pdf` (modèle en constellation).
 
@@ -41,9 +41,9 @@ Le détail complet des 20 requêtes est dans `sae_requetes_KAEAb.sql`. Le modèl
 
 ## Stratégie d'analyse et visualisation
 
-Les visualisations Qlik se concentrent sur trois pays représentant des niveaux de pollution contrastés : **Norvège** (faible pollution), **Allemagne** (pollution moyenne), **Chine** (forte pollution) — pour rendre les écarts et tendances plus lisibles qu'une analyse globale.
+Les visualisations Qlik se concentrent sur trois pays représentant des niveaux de pollution contrastés : **Norvège** (faible pollution), **Allemagne** (pollution moyenne), **Chine** (forte pollution) - pour rendre les écarts et tendances plus lisibles qu'une analyse globale.
 
-Cette approche a permis de repérer une anomalie : la pollution moyenne en Chine passe de 66,84 µg/m³ (2021) à 27,23 µg/m³ (2022), une baisse de plus de 50 % en un an, bien plus marquée que l'évolution stable observée en Allemagne et en Norvège sur la même période. Plusieurs hypothèses sont envisagées (données manquantes, changement de méthode de mesure, événement ponctuel — dont un possible effet des confinements liés au COVID-19).
+Cette approche a permis de repérer une anomalie : la pollution moyenne en Chine passe de 66,84 µg/m³ (2021) à 27,23 µg/m³ (2022), une baisse de plus de 50 % en un an, bien plus marquée que l'évolution stable observée en Allemagne et en Norvège sur la même période. Plusieurs hypothèses sont envisagées (données manquantes, changement de méthode de mesure, événement ponctuel - dont un possible effet des confinements liés au COVID-19).
 
 ## Conclusion
 
@@ -51,12 +51,12 @@ Le modèle multidimensionnel en constellation s'est montré mieux adapté à l'a
 
 ## Contenu du dépôt
 
-- `Rendu_Final_SAE_Visualisation_KAEAB.pdf` — rapport complet
-- `MLD_SAE.pdf` — modèle logique de données (schéma relationnel)
-- `Modele_constellation.pdf` — schéma en constellation
-- `BDD_relationnel.sql` — script de création du modèle relationnel
-- `BDD_multidimensionnel.sql` — script de création du modèle multidimensionnel
-- `sae_requetes_KAEAb.sql` — les 20 requêtes comparées entre les deux modèles
+- `Rendu_Final_SAE_Visualisation_KAEAB.pdf` - rapport complet
+- `MLD_SAE.pdf` - modèle logique de données (schéma relationnel)
+- `Modele_constellation.pdf` - schéma en constellation
+- `BDD_relationnel.sql` - script de création du modèle relationnel
+- `BDD_multidimensionnel.sql` - script de création du modèle multidimensionnel
+- `sae_requetes_KAEAb.sql` - les 20 requêtes comparées entre les deux modèles
 
 ## Outils
 
