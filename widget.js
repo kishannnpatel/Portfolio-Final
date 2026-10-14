@@ -62,25 +62,45 @@ var FB_CONFIG = {
 
   /* ---------- drag ---------- */
 
+  // sur mobile le widget reste fixe en bas a droite (widget.css) : pas de deplacement
+  var mobile = window.matchMedia('(max-width:640px)');
+
   function applyPos(pos) {
     widget.style.top = pos.top + 'px';
     widget.style.left = pos.left + 'px';
     widget.style.right = 'auto';
   }
 
-  var savedPos = lsGet('fb_pos');
-  if (savedPos) {
+  function clearPos() {
+    widget.style.top = '';
+    widget.style.left = '';
+    widget.style.right = '';
+  }
+
+  function restorePos() {
+    var savedPos = lsGet('fb_pos');
+    if (!savedPos) return;
     try {
       var pos = JSON.parse(savedPos);
       if (pos && typeof pos.top === 'number' && typeof pos.left === 'number') {
-        applyPos(pos);
+        // une position enregistree sur un ecran plus grand ne doit pas sortir de l'ecran
+        applyPos({
+          top: Math.max(0, Math.min(pos.top, window.innerHeight - 40)),
+          left: Math.max(0, Math.min(pos.left, window.innerWidth - 40))
+        });
       }
     } catch (e) {}
   }
 
+  if (!mobile.matches) restorePos();
+  mobile.addEventListener('change', function (e) {
+    if (e.matches) clearPos(); else restorePos();
+  });
+
   var dragging = false, dragOffsetX = 0, dragOffsetY = 0;
 
   header.addEventListener('pointerdown', function (e) {
+    if (mobile.matches) return;
     if (e.target.closest('.fb-icon-btn')) return;
     dragging = true;
     widget.classList.add('fb-dragging');

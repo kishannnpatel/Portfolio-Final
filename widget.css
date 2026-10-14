@@ -122,15 +122,25 @@ html.dark #fb-widget{
   display:none;
 }
 
-@media (max-width:520px){
+/* sur mobile : en bas a droite (en face du bouton retour en haut), pour ne pas cacher le menu */
+@media (max-width:640px){
   #fb-widget{
+    top:auto;
+    left:auto;
     right:.75rem;
-    left:.75rem;
-    top:.75rem;
-    width:auto;
+    bottom:calc(.75rem + env(safe-area-inset-bottom,0px));
+    width:10.5rem;
+  }
+  .fb-header{
+    padding:.45rem .65rem;
+    cursor:default;
+  }
+  .fb-body{
+    padding:.5rem .65rem .6rem;
   }
   .fb-reopen-btn{
+    top:auto;
     right:.75rem;
-    top:.75rem;
+    bottom:calc(.75rem + env(safe-area-inset-bottom,0px));
   }
 }
