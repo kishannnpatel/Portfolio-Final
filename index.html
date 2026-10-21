@@ -115,7 +115,7 @@
       <div class="skills-grid">
         <div class="skill-cat">
           <h3 data-i18n="competences.skill.langages">Langages</h3>
-          <ul><li>Python</li><li>Java</li><li>JavaScript</li><li>TypeScript</li><li>Rust</li><li>PHP</li><li>C</li><li>SQL</li><li>HTML</li></ul>
+          <ul><li>Python</li><li>Java</li><li>JavaScript</li><li>TypeScript</li><li>PHP</li><li>C</li><li>SQL</li><li>HTML</li></ul>
         </div>
         <div class="skill-cat">
           <h3 data-i18n="competences.skill.bdd">Bases de données</h3>
@@ -127,7 +127,7 @@
         </div>
         <div class="skill-cat">
           <h3 data-i18n="competences.skill.frameworks">Frameworks</h3>
-          <ul><li>JavaFX</li><li>Flask</li><li>JUnit</li><li>Tauri</li><li>Svelte</li></ul>
+          <ul><li>JavaFX</li><li>Flask</li><li>JUnit</li></ul>
         </div>
       </div>
       <div class="competences-subhead" data-i18n="competences.subhead">Où le vérifier</div>
@@ -138,7 +138,7 @@
         <tr><td data-i18n="competences.r3.a">Architecture PHP MVC, gestion de sessions, protection CSRF</td><td><a href="#projet-buvette" data-i18n="proj.buvette.title">Buvette Associative</a></td></tr>
         <tr><td data-i18n="competences.r4.a">Programmation orientée objet en Java, interfaces JavaFX</td><td><a href="#projet-zelda" data-i18n="proj.zelda.title">Zelda</a></td></tr>
         <tr><td data-i18n="competences.r5.a">Algorithmique de jeu (stratégie, tour par tour)</td><td><a href="#projet-puissance4" data-i18n="proj.p4.title">Puissance 4</a>, <a href="#projet-bataille" data-i18n="proj.bataille.title">Bataille Navale</a></td></tr>
-        <tr><td data-i18n="competences.r7.a">Application de bureau en Rust : tests automatisés (dont crash réel), intégration continue, développement avec des agents IA</td><td><a href="#projet-organizer" data-i18n="proj.organizer.title">Organizer</a></td></tr>
+        <tr><td data-i18n="competences.r7.a">Piloter un développement assisté par IA : spécification, tests automatisés, intégration continue, relecture de sécurité</td><td><a href="#projet-organizer" data-i18n="proj.organizer.title">Organizer</a></td></tr>
         <tr><td data-i18n="competences.r6.a">Visualisation et analyse de données avec Qlik Sense</td><td><a href="#resultats" data-i18n="competences.r6.b">Dashboard de résultats</a></td></tr>
       </table>
     </div>
@@ -156,8 +156,8 @@
           <h3 data-i18n="proj.organizer.title">Organizer</h3>
           <span class="project-date">2026</span>
         </div>
-        <span class="badge" data-i18n="proj.organizer.badge">Projet personnel - seul</span>
-        <p class="desc" data-i18n="proj.organizer.desc">Application Mac qui range les fichiers d'un dossier sans pouvoir faire de dégâts : elle montre d'abord un aperçu « avant → après » avec la raison de chaque déplacement, n'agit qu'après validation, et tout s'annule. Elle repère aussi les doublons, les dossiers vides ou oubliés et les documents sensibles, retrouve un fichier rangé (« Où est ma facture EDF ? »), et affiche températures et ventilateur. Aucune suppression définitive (corbeille seulement), journal écrit avant chaque action, reprise testée en arrêtant brutalement le programme en plein rangement. Construite avec des agents IA (plan, tests, relecture sécurité), dans le cadre du TP3 du cours « Outils d'IA pour développeurs ».</p>
+        <span class="badge" data-i18n="proj.organizer.badge">Projet personnel - développé avec Claude Code (IA)</span>
+        <p class="desc" data-i18n="proj.organizer.desc">Application Mac qui range les fichiers d'un dossier sans pouvoir faire de dégâts : elle montre d'abord un aperçu « avant → après » avec la raison de chaque déplacement, n'agit qu'après validation, et tout s'annule. Elle repère aussi les doublons, les dossiers vides ou oubliés et les documents sensibles, retrouve un fichier rangé (« Où est ma facture EDF ? »), et affiche températures et ventilateur. Aucune suppression définitive (corbeille seulement), journal écrit avant chaque action, reprise testée en arrêtant brutalement le programme en plein rangement. Réalisé dans le cadre du TP3 du cours « Outils d'IA pour développeurs » : j'ai défini le besoin et les règles de sécurité, piloté les agents (plan, tests, relecture) et validé chaque étape ; le code a été écrit par l'IA.</p>
         <div class="stack"><b>Stack</b> Rust · Tauri 2 · Svelte 5 · TypeScript · GitHub Actions</div>
         <figure>
           <video src="images/Projets/Organizer/organizer-demo.mp4" controls playsinline preload="metadata"></video>
@@ -496,7 +496,7 @@
       'competences.r4.a':'Object-oriented programming in Java, JavaFX interfaces',
       'competences.r5.a':'Game algorithms (strategy, turn-based)',
       'competences.r6.a':'Data visualization and analysis with Qlik Sense',
-      'competences.r7.a':'Desktop app in Rust: automated tests (including a real crash test), continuous integration, development with AI agents',
+      'competences.r7.a':'Leading AI-assisted development: specification, automated tests, continuous integration, security review',
       'competences.r6.b':'Results dashboard',
 
       'projets.label':'Projects',
@@ -504,8 +504,8 @@
       'projets.lede':'Most recent first. Group projects are labeled as such.',
 
       'proj.organizer.title':'Organizer',
-      'proj.organizer.badge':'Personal project - solo',
-      'proj.organizer.desc':'Mac app that tidies up a folder without being able to do damage: it first shows a “before → after” preview with the reason for each move, acts only once you confirm, and everything can be undone. It also finds duplicates, empty or forgotten folders and sensitive documents, locates a filed document (“Where is my electricity bill?”), and shows temperatures and the fan. No permanent deletion (Trash only), a journal written before every action, recovery tested by killing the program mid-run. Built with AI agents (plan, tests, security review) for the final project of the “AI tools for developers” course.',
+      'proj.organizer.badge':'Personal project - built with Claude Code (AI)',
+      'proj.organizer.desc':'Mac app that tidies up a folder without being able to do damage: it first shows a “before → after” preview with the reason for each move, acts only once you confirm, and everything can be undone. It also finds duplicates, empty or forgotten folders and sensitive documents, locates a filed document (“Where is my electricity bill?”), and shows temperatures and the fan. No permanent deletion (Trash only), a journal written before every action, recovery tested by killing the program mid-run. Final project of the “AI tools for developers” course: I defined the requirements and safety rules, steered the agents (plan, tests, review) and validated each step; the code was written by the AI.',
       'proj.organizer.figcap':'Demo: messy demo folder, preview, tidy-up, undo',
       'proj.organizer.fig1cap':'Before → after preview, to confirm',
       'proj.organizer.fig2cap':'“Where is my electricity bill?”: location and history',
