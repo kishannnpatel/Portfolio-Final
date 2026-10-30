@@ -69,7 +69,7 @@
         </div>
         <div class="intro-card">
           <span class="card-label" data-i18n="intro.card2.label">Stack principal</span>
-          <span class="card-value" data-i18n="intro.card2.value">SQL · PostgreSQL · Java · PHP</span>
+          <span class="card-value" data-i18n="intro.card2.value">Python · SQL · PostgreSQL · Java</span>
         </div>
         <div class="intro-card">
           <span class="card-label" data-i18n="intro.card3.label">Disponibilité</span>
@@ -115,15 +115,23 @@
       <div class="skills-grid">
         <div class="skill-cat">
           <h3 data-i18n="competences.skill.langages">Langages</h3>
-          <ul><li>Python</li><li>Java</li><li>JavaScript</li><li>TypeScript</li><li>PHP</li><li>C</li><li>SQL</li><li>HTML</li></ul>
+          <ul><li>Python</li><li>SQL</li><li>Java</li><li>PHP</li><li>JavaScript</li><li>HTML / CSS</li><li>C</li></ul>
         </div>
         <div class="skill-cat">
           <h3 data-i18n="competences.skill.bdd">Bases de données</h3>
-          <ul><li>PostgreSQL</li><li>MongoDB</li><li>MySQL</li></ul>
+          <ul><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li></ul>
+        </div>
+        <div class="skill-cat">
+          <h3 data-i18n="competences.skill.data">Data &amp; IA</h3>
+          <ul><li>pandas</li><li>scikit-learn</li><li>Machine learning</li><li>Qlik Sense</li></ul>
+        </div>
+        <div class="skill-cat">
+          <h3 data-i18n="competences.skill.iadev">Développement assisté par IA</h3>
+          <ul><li>Claude Code</li><li>MCP</li><li>Subagents</li><li>Hooks</li><li>Skills</li></ul>
         </div>
         <div class="skill-cat">
           <h3 data-i18n="competences.skill.outils">Outils &amp; environnements</h3>
-          <ul><li>Git</li><li>Linux</li><li>macOS</li><li>Windows</li><li>VSCode</li><li>IntelliJ</li><li>PyCharm</li></ul>
+          <ul><li>Git</li><li>GitHub</li><li>Linux</li><li>macOS</li><li>Windows</li><li>PyCharm</li><li>IntelliJ</li><li>WebStorm</li><li>VSCode</li><li>DBeaver</li></ul>
         </div>
         <div class="skill-cat">
           <h3 data-i18n="competences.skill.frameworks">Frameworks</h3>
@@ -140,6 +148,7 @@
         <tr><td data-i18n="competences.r5.a">Algorithmique de jeu (stratégie, tour par tour)</td><td><a href="#projet-puissance4" data-i18n="proj.p4.title">Puissance 4</a>, <a href="#projet-bataille" data-i18n="proj.bataille.title">Bataille Navale</a></td></tr>
         <tr><td data-i18n="competences.r7.a">Piloter un développement assisté par IA : spécification, tests automatisés, intégration continue, relecture de sécurité</td><td><a href="#projet-organizer" data-i18n="proj.organizer.title">Organizer</a></td></tr>
         <tr><td data-i18n="competences.r6.a">Visualisation et analyse de données avec Qlik Sense</td><td><a href="#resultats" data-i18n="competences.r6.b">Dashboard de résultats</a></td></tr>
+        <tr><td data-i18n="competences.r8.a">Automatisations et paramétrage d'agents IA pour un client</td><td><a href="#parcours" data-i18n="competences.r8.b">Stage Elementum</a></td></tr>
       </table>
     </div>
   </section>
@@ -403,7 +412,7 @@
 <footer id="site-footer">
   <div class="wrap">
     <div class="footer-copy"><span data-i18n="footer.copy">© <span id="year"></span> Kishan Patel - Tous droits réservés</span></div>
-    <div class="footer-updated" data-i18n="footer.updated">Dernière mise à jour : septembre 2026</div>
+    <div class="footer-updated" data-i18n="footer.updated">Dernière mise à jour : octobre 2026</div>
   </div>
 </footer>
 
@@ -462,7 +471,7 @@
       'intro.card1.label':'Specialization',
       'intro.card1.value':'Data administration, management and processing',
       'intro.card2.label':'Main stack',
-      'intro.card2.value':'SQL · PostgreSQL · Java · PHP',
+      'intro.card2.value':'Python · SQL · PostgreSQL · Java',
       'intro.card3.label':'Availability',
       'intro.card3.value':'Work-study (alternance) 2026 / 2027',
 
@@ -485,6 +494,8 @@
       'competences.lede':'The languages and tools I use, and further down, where to check certain skills in practice.',
       'competences.skill.langages':'Languages',
       'competences.skill.bdd':'Databases',
+      'competences.skill.data':'Data &amp; AI',
+      'competences.skill.iadev':'AI-assisted development',
       'competences.skill.outils':'Tools &amp; environments',
       'competences.skill.frameworks':'Frameworks',
       'competences.subhead':'Where to check it',
@@ -498,6 +509,8 @@
       'competences.r6.a':'Data visualization and analysis with Qlik Sense',
       'competences.r7.a':'Leading AI-assisted development: specification, automated tests, continuous integration, security review',
       'competences.r6.b':'Results dashboard',
+      'competences.r8.a':'Automations and AI agent configuration for a client',
+      'competences.r8.b':'Elementum internship',
 
       'projets.label':'Projects',
       'projets.h2':'Academic &amp; personal projects',
@@ -589,7 +602,7 @@
       'contact.lettre':'Letter',
 
       'footer.copy':'© <span id="year"></span> Kishan Patel - All rights reserved',
-      'footer.updated':'Last updated: September 2026'
+      'footer.updated':'Last updated: October 2026'
     };
 
     var ALT_EN = {
